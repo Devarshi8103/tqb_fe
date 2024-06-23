@@ -1,0 +1,422 @@
+.home-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  
+}
+
+.home-carousel-images {
+
+  width: 100%;
+
+
+  max-width: 800px;
+  margin-top: 80px;
+
+}
+
+.home-image {
+  width: 100%; /* Ensure images take full width of carousel */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.types-list {
+
+  height: 140px;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to the next line */
+  padding-bottom: 10px; /* Optional: Add some space below the items for better visibility */
+  scrollbar-width: 14px;
+  scrollbar-color: transparent;
+}
+
+/* Webkit-based browsers */
+.types-list::-webkit-scrollbar {
+  height: 2px;
+}
+
+.types-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.types-list::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Hide scrollbar for Webkit browsers */
+.types-list::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Show scrollbar on hover */
+.types-list:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.type-item {
+  display: inline-flex; /* Ensure items remain in a row */
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.type-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.type-item p {
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.text-effect {
+  position: relative; /* Ensure the container is positioned relatively */
+  width: 100%; 
+  margin-top: 20px;
+height: 150px;
+}
+
+
+
+.text-effect h1 {
+  width: 90%;
+font-size: 29.3px;
+  position: absolute; /* Position the h1 tag absolutely within the container */
+  top: 50%; /* Align the top of the h1 tag to the middle vertically */
+  left: 50%; /* Align the left side of the h1 tag to the center horizontally */
+  transform: translate(-50%, -50%); /* Center the h1 tag perfectly */
+  text-align: center; /* Center the text horizontally within the h1 tag */
+   margin: 0;
+  z-index: 1; 
+
+}
+
+.text-effect::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the alpha value for the desired opacity */
+  z-index: 0;
+}
+
+
+.text-effect img{
+  width: 100%;
+  height: 150px;
+
+  object-fit: cover; 
+ }
+
+
+
+.category-list {
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  overflow-x: hidden; /* Prevent horizontal scrolling for the whole category list */
+  margin-top: 20px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+ 
+  background-color: #c6e9ff;
+
+  border-radius: 10px;
+ 
+  margin-bottom: 20px; 
+  padding: 15px;
+  min-width: 300px;
+  flex: 0 0 auto;
+  margin: 10px;
+}
+
+.category-item.Cakes{
+  background-color: #fff;
+  margin-bottom:0px;
+  padding: 0px;
+  margin: 0px;
+
+
+}
+
+.cakes-header{
+  color: #007BFF;
+  margin-bottom: 0px;
+  margin-left: 20px;
+
+
+}
+
+.category-item.Pastries{
+  background-color: #dffee8;
+  
+  
+  .category-item-price{
+    background-color: #06c13b;
+  }
+  .category-name{
+    color: #06c13b;
+   
+  }
+  .view-all{
+    background-color: #fff;
+    color: #06c13b;
+    border-color: #06c13b;
+
+  }
+}
+
+
+.category-item.Ice-Creams{
+  background-color: #fed9e6;
+  .category-item-price{
+    background-color: #ff5b92;
+  }
+  .category-name{
+    color: #ff5b92;
+    
+  }
+  .view-all{
+    background-color: #fff;
+    color: #ff5b92;
+    border-color: #ff5b92;
+
+  }
+}
+
+.category-item.Biscuits{
+  background-color: #fef8da;
+  .category-item-price{
+    background-color: #debd02;
+  }
+  .category-name{
+    color: #debd02;
+  
+  }
+  .view-all{
+    background-color: #fff;
+    color: #debd02;
+    border-color: #debd02;
+
+  }
+}
+
+
+
+.category-name-view-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -30px;
+}
+
+.category-item .category-name {
+  font-size: 30px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.view-all {
+  border: 1px solid #007BFF;
+  background-color: white;
+  color: #007BFF;
+  border-radius: 26px;
+  padding: 5px;
+
+}
+
+.view-all:hover{
+  cursor: pointer;
+}
+
+.category-products {
+  margin-top: -10px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px; /* Space between products */
+  padding-bottom: 10px; /* Adds some padding at the bottom */
+  width: 100%; /* Ensure it takes full width of the container */
+}
+
+
+.category-product {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(0, 0, 0 , 0.1);
+  background-color: rgb(255, 255, 255);
+ 
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  backdrop-filter:blur(5px);
+
+  border-radius: 8px;
+
+  box-shadow: 0 2px 4px rgba(144, 9, 9, 0.1);
+  padding: 10px;
+  flex-shrink: 0;
+  min-width: 150px;
+}
+
+.product-category-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.product-category-image:hover {
+  transform: scale(1.14);
+} 
+
+.category-product p {
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+  margin-top: 5px; /* Space between paragraphs */
+}
+
+/* Scrollbar styles for .category-products */
+.category-products::-webkit-scrollbar {
+  height: 0px;
+}
+
+.category-products::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.category-products::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Optional: Hide scrollbar for Webkit browsers */
+.category-products::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Show scrollbar on hover */
+.category-products:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.category-item-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.category-item-price {
+
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  background-color: #007BFF;
+  border-radius: 15px;
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-item-price:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.fa-icons{
+ position: absolute;
+margin-left: 10px;
+margin-top: 8px;
+
+
+
+ }
+
+
+
+@media (min-width: 768px) {
+  .carousel-images {
+    width: 60%;
+    margin-top: 70px;
+
+
+  }
+  .home-carousel-images {
+  
+    margin-bottom: 20px;
+   
+  }
+  .home-div{
+    width: 80%;
+  margin: 0px auto;
+
+  }
+  .types-list {
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+  
+
+ 
+    
+  }
+
+  
+  
+  .category-list{
+
+    padding:0px 100px ;
+  }
+  .category-list.Cakes{
+    padding: 0 0px;
+  }
+  .category-item{
+    padding: 15px 20px;
+  }
+
+  .text-effect {
+    height: 300px;
+  }
+  .text-effect h1{
+  font-size: 62px;
+ 
+  }
+
+  .text-effect img{
+    height: 300px;
+  }
+ 
+}

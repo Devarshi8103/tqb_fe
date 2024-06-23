@@ -1,0 +1,170 @@
+.footer {
+    background-color: #302f2f;
+    color: white;
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+  }
+  .footer-headers{
+    color: rgb(9, 170, 245);
+    font-size: 20px;
+   
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  
+  .social-media {
+   
+    gap: 10px; 
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+  }
+  
+  .social-media a {
+    display: flex;
+    align-items: center; /* Center vertically */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+
+  
+  .social-media p {
+    margin: 0; /* Remove default margin from <p> */
+    font-size: 16px; /* Adjust text size */
+    display: flex;
+    align-items: center; /* Center text vertically */
+  }
+  
+
+ 
+  
+  
+  .social-media-icons {
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    padding:14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+
+ 
+  }
+  
+
+  .social-media-icons.whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+  }
+
+
+  .social-media-icons.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 10%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+  }
+
+ 
+  
+  .social-media-icons.google-photos:hover {
+    background-color: #4285F4;
+    color: white;
+  }
+  
+ .social-media, .slogan {
+    margin: 10px;
+  
+  }
+  
+  .contact-info h3, .social-media h3 {
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p, .social-media p {
+    margin: 5px 0;
+    font-size: 18px;
+  }
+  
+  .contact-info p svg, .social-media p svg {
+    margin-right: 8px;
+  }
+  
+  .slogan h2 {
+    font-size: 24px;
+    color: #ffde24;
+
+
+  }
+
+  
+  .footer-bottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 10px;
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  .review {
+    width: 150px;
+    height: auto;
+  }
+
+  .contact-info p {
+    margin-top: 30px;
+
+  }
+  @media (min-width: 768px) {
+    .footer-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+
+    padding: 0px;
+    align-items: start;
+    }
+  
+   
+  
+  .social-media h3, .slogan h2 {
+      font-size: 20px;
+    }
+  
+ .social-media p {
+      font-size: 14px;
+    }
+  
+    .social-media-icons {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      padding: 8px;
+      margin: 5px;
+    }
+  
+    .slogan h2 {
+      font-size: 18px;
+    }
+   
+  }
+  

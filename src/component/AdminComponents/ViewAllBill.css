@@ -1,0 +1,136 @@
+/* ViewAllBill.css */
+
+.date-header-bill{
+  
+    display: flex;
+    justify-content: start;
+  margin-left: 150px;
+}
+
+.name-mobile {
+   display: flex;
+   align-items: center;
+   height: 50px;
+   width: 82%;
+   margin: 0 auto;
+background-color: rgb(224, 224, 224);
+z-index: 99;
+margin-bottom: 10px;
+   
+}
+
+.name-bill {
+    position: absolute;
+    left: 25%;  
+}
+
+.mobile-bill{
+    position: absolute;
+    left: 55%;
+}
+
+.Name-mobile-bill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Name-mobile-bill p {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+    text-align: center;
+}
+
+.Name-mobile-bill button {
+    padding: 10px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+  
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+  
+}
+.view-bill.h{
+   opacity: 0;
+}
+.delete-bill.h{
+    opacity: 0;
+}
+
+.Name-mobile-bill .delete-bill {
+    margin: 10px;
+}
+
+.Name-mobile-bill .view-bill:hover {
+    background-color: #0056b3;
+}
+
+.Name-mobile-bill .delete-bill:hover {
+    color: #c82333;
+}
+.Name-mobile-bill .share-bill:hover {
+    color: #04c404;
+}
+/* ViewAllBill.css */
+
+/* General adjustments for mobile screens */
+@media (max-width: 768px) {
+   
+
+    .date-header-bill{
+        margin-left: 30px;
+    }
+    .Name-mobile-bill {
+        display: flex;
+     
+        align-items: center;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 90%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .Name-mobile-bill p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+    }
+
+    .Name-mobile-bill button {
+        width: 20%;
+ 
+        font-size: 13px;
+   
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+       
+    }
+
+  
+
+ 
+}

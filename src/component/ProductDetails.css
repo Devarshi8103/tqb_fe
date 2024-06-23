@@ -1,0 +1,108 @@
+/* ProductDetails.css */
+
+.one-product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ background-color: #5a42835f;
+
+ padding-bottom: 40px;
+ 
+   
+    max-width: 800px;
+    margin: 0px auto;
+  
+}
+
+.one-product-details h1 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+
+    color: #5a4283;
+  
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.one-product-image {
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.one-product-name {
+  
+    color: rgb(105, 105, 105);
+
+font-family: 'Playfair Display', serif;
+text-transform: capitalize;
+
+
+
+
+   
+    font-size: 50px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.details-card {
+    width: 80%;
+    padding: 15px;
+     background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+
+    text-align: center;
+}
+.table-details{
+    display: flex;
+  
+    background-color: #5a4283;
+   
+    justify-content: center;
+
+
+  
+}
+ .table-details table {
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+
+
+.table-details td { 
+    padding: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table-details td:first-child {
+     
+    font-weight: bold;
+    color: #fff;
+    
+ 
+}
+
+.table-details td:nth-child(even) {
+
+    color: #FFD700;
+
+
+
+}
+

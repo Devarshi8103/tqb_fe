@@ -1,0 +1,434 @@
+
+body{
+  overflow: auto;
+ 
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.add-products{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.form {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid rgb(206, 206, 206);
+  max-width: 500px; 
+  /* overflow:hidden; */
+}
+
+
+.image-select {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+}
+
+.selected-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image-placeholder {
+  color: #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+.image-select:hover {
+  border-color: #007bff;
+}
+.form-inputs{
+  margin-top: 20px;
+  border: 1px solid rgb(220, 220, 220);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  background-color: #fff;
+  
+}
+.form-control {
+  width: 100%; /* Full width input */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: -10px;
+  font-size: 16px;
+  margin-right: 10px;
+
+}
+
+
+.dropdown {
+  width: 100%; 
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
+.input-div {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  flex-basis: 200px; /* Fixed width for labels */
+  margin-right: 20px; /* Space between label and input */
+  text-align: left;
+}
+
+.form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.products-container{
+
+ h2{
+  margin-top: 50px;
+
+ }
+ .ch{
+  color: #fff;
+  text-align: center;
+
+ }
+ .category-Cakes{
+
+  h2{padding: 10px;
+    background-color:#007BFF;
+  }
+  .product-card{
+    background-color:#8ae5ff ;
+    background-color:#c6e9ff ;
+  }}
+
+  .category-Ice-Creams{
+
+    h2{padding: 10px;
+      background-color: #ff5b92;
+    }
+    .product-card{
+      background-color: #fed9e6;
+    }}
+
+    .category-Pastries{
+
+      h2{padding: 10px;
+        background-color: #06c13b;
+      }
+      .product-card{
+        background-color: #dffee8;
+      }}
+      .category-Biscuits{
+
+        h2{padding: 10px;
+          background-color: #debd02;
+        }
+        .product-card{
+          background-color:#fef8da ;
+        }}
+}
+.types{
+  margin-left: 10px;
+  font-size: 23px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; /* Center content horizontally */
+  margin-bottom: 10px;
+  gap: 10px;
+
+  align-items: center; /* Center content vertically */
+}
+
+
+
+.product-card {
+   width: 100%;
+   height: 70px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+ 
+}
+
+/* .product-card:hover {
+  transform: translateY(-5px);
+} */
+
+.product-img{
+  width: 25%;
+  display: flex;
+  align-items: center;
+
+}
+.product-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px ;
+  transition: transform 0.3s ease;
+  
+}
+/* .product-card:hover img {
+  transform: scale(1.1);
+} */
+
+.product-details {
+  /* width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; */
+   width: 70%;
+   display: flex;
+   align-items: center;
+  p{
+    width: 25%;
+   margin: 5px;
+ 
+    text-align: center;
+    font-weight: normal;
+
+
+    /* background-color: red; */
+  }
+
+
+}
+.btns{
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(227, 235, 228);
+  width: 5%;
+
+}
+
+.pen:hover{
+
+color: red; 
+
+}
+.trash:hover{
+  color: red;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  margin-left: 24%;
+width: 65%;
+
+
+
+
+
+  p{
+
+  width: 25%;
+   
+    text-align: center;
+    font-weight: bold;
+
+
+    /* background-color: red; */
+  }
+
+
+}
+
+
+
+
+
+/* Add more styles as needed */
+
+
+@media (min-width: 768px)  {
+
+.form{
+  max-width: 100%;
+
+ 
+}
+.image-select {
+  margin: 0;
+
+}
+
+.form-start{
+  display: flex;
+
+ 
+}
+.form-inputs{
+  display: flex;
+  margin-left: 10px;
+  width: 100%;
+
+  margin-top: 0;
+
+}
+.form-label {
+font-size: 20px;
+  width: 100px;
+  margin-right: 0px;
+  text-align: start;
+
+  margin-top: -70px;
+  margin-left:55px ;
+
+}
+.form-control {
+  width: 70%;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-left: -200px;
+}
+.dropdown {
+  width: 70%; 
+  margin-left: -20px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-left: -200px;
+}
+.input-div {
+   width: 20%;
+  align-items: center;
+  justify-items: center;
+margin-left: -30px;
+margin-top: 12px;
+
+  
+
+}
+.btn{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+margin-left: 10px;
+margin-right: 10px;
+    width: 150px;
+
+}
+.form button {
+  width: 100%;
+
+}
+
+
+.products-list {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  gap: 30px;
+
+  align-items: center; /* Center content vertically */
+}
+
+
+
+.product-card {
+  width: 49%;
+  height: 100px;
+ background-color: #f5f5f5;
+ border-radius: 10px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ overflow: hidden;
+ transition: transform 0.3s ease-in-out;
+ display: flex;
+
+}
+
+.product-img{
+  width: 25%;
+  display: flex;
+  align-items: center;
+
+}
+.product-details{
+  width: 75%;
+  font-size: 20px;
+
+}
+
+.header{
+  padding-left: 190px;
+  width: 50%;
+  margin-left: 0px;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+
+  p{ 
+     width: 15%;
+    margin: 0px;
+    margin-left:0px ;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+
+
+    /* background-color: red; */
+  }
+
+
+}
+
+}
+

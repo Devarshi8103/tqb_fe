@@ -1,0 +1,267 @@
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  margin: 20px auto;
+}
+.view-bill-div{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
+}
+
+.view-bill-btn{
+color: #fff;
+font-size: 18px;
+background-color: #37c105;
+width: 200px;
+height: 30px;
+border: none;
+border-radius: 5px;
+}
+
+.view-bill-btn:hover{
+cursor: pointer;
+background-color: #000000;  
+}
+
+.bill-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-input,
+.product-input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-input {
+  margin-top: 20px;
+}
+
+.customer-input p,
+.product-input p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.customer-input table,
+.product-input table {
+  width: 100%;
+}
+
+.customer-input input,
+.product-input input  {
+  width: calc(100% - 10px);
+  padding: 5px;
+  /* margin: 5px 0; */
+
+
+}
+
+.ct , .form-input-control{
+  margin-top: 10px;
+}
+.form-input-control{
+  width: 100%; 
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  font-size: 16px;
+ 
+
+}
+
+.add-btn button {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px ;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-btn{
+  display: flex;
+  justify-content: center;
+}
+.reset-btn button {
+  padding: 8px 16px;
+
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bill-pdf {
+  margin-top: 40px;
+  border: 1px solid #a7a5a5;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+.address {
+
+  margin-left: 50%;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.customer-name {
+  margin-top: 20px;
+}
+.details{
+  display: flex;
+  font-size: 13px;
+  .mobile-no{
+    width: 50%;
+  }
+}
+
+.bill-product-details{
+  width: 100%;
+
+}
+.bill-product-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+}
+
+.table-header{
+  width: 100px;
+  
+}
+
+.table-header th {
+
+background-color: #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+.bill-product-details td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+
+}
+
+.total-amount {
+  width: 50%;
+  margin-left: 50%;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.d-s-btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+
+}
+
+.download-btn,
+.share-btn {
+  padding: 8px 16px;
+  background-color: #298df1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .input-form {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  .bill-form {
+    flex-direction: row;
+    
+  }
+
+  .customer-input,
+  .product-input {
+    width: 50%;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .product-input {
+    margin-top: 0;
+  }
+
+  .customer-input p,
+  .product-input p {
+    font-size: 22px;
+  }
+
+  .customer-input input,
+  .product-input input {
+    padding: 8px;
+    margin: 8px 0;
+  }
+
+  .bill-pdf {
+    margin-top: 60px;
+    padding: 30px;
+  }
+
+  .address {
+    margin-left: 71%;
+  }
+  .customer-name{
+    font-size: 20px;
+  }
+
+  .details {
+    font-size: 20px;
+  }
+
+  .table-header th {
+    font-size: 18px;
+  }
+
+  .bill-product-details td {
+    padding: 10px;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .total-amount {
+   width: 25%;
+   margin-left: 75%;
+
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
+
+  }
+
+
+ 
+}

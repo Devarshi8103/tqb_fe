@@ -1,0 +1,107 @@
+
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit text color from parent */
+}
+.admin-page {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100vh;
+  background-color: #ffffff; /* Example background color */
+}
+
+.admin-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffea00;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  background-color: #000000;
+  transform: translateY(-5px);
+  color: #ffea00;
+  h2{
+     color: #ffea00;
+  }
+ 
+}
+
+.icons {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666666;
+  line-height: 1.4;
+}
+/* Media query for tablet-sized devices */
+@media (max-width: 768px) {
+  .admin-page {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+ 
+    background-color: #ffffff; /* Example background color */
+  }
+  .admin-home {
+
+    display: flex;
+    flex-direction: column; /* Arrange items in a single column */
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 20px;
+   padding-bottom: 20px;
+     /* Center items horizontally */
+    /* margin-top: 25%; */
+    gap: 20px; /* Reduce the gap between items */
+
+  }
+
+  .card {
+    width: 100px; /* Occupy full width of the container */
+    max-width: none; /* Remove maximum width */
+     height: 100px;
+
+    padding: 15px; /* Adjust padding */
+
+  }
+  
+  .card h2 {
+    font-size: 1rem; /* Decrease heading font size */
+  }
+  .icons {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+
+  .card p {
+    font-size: 0.5rem; /* Decrease paragraph font size */
+  }
+}

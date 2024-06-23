@@ -1,0 +1,168 @@
+.carousel-image-select {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+   justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+   
+ 
+  
+  }
+  .left-arrow{
+    position: absolute;
+    top: 14px;
+    left: 10px;
+
+  }
+  .carousel-image-header{
+    text-align: center;
+
+
+    margin: 0 auto;
+
+  }
+  
+  .carousel-selected-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .carousel-image-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-image-placeholder {
+    color: #ccc;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .carousel-image-select:hover {
+    border-color: #007bff;
+  }
+  /* Hidden file input */
+
+  
+  /* Button styling */
+  .carousel-add-btn button{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+   width: 30%;
+   margin-top: 10px;
+   
+    transition: background-color 0.3s;
+
+  }
+  .carousel-add-btn  {
+
+text-align: center;
+
+ 
+  }
+  
+  .btn button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Container for the carousel of images */
+  .carousel-images {
+    width: 100%;
+  
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr)); /* Two-column layout */
+   
+    justify-items: center;
+    
+
+  
+  }
+  
+  /* Individual carousel image container */
+  .carousel-image {
+    width: 170px;
+    height: 85px;
+    overflow: hidden;
+    /* margin: 0 auto; */
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    
+  }
+  
+  /* Carousel image styling */
+  .carousel-image img {
+    width: 100%;
+    height: 100%;
+    margin-top: -30px;
+    object-fit: cover;
+  }
+  /* Trash icon styling */
+
+  
+  .carousel-trash-icon{
+    position:relative; 
+   
+  top: 3px; 
+  left: 84%; 
+  z-index: 10; 
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  
+  
+.carousel-trash-icon:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+  }
+
+
+  @media (min-width: 768px)  {
+
+
+    .carousel-images{
+      margin: 0 auto;
+      width: 90%;
+   
+   margin-top: 30px;
+
+      grid-template-columns: repeat(4, minmax(0px, 1fr)); /* Two-column layout */
+     gap: 0px;
+   
+    }
+    .carousel-image{
+      width: 300px;
+      height: 150px;
+      margin-top: 20px;
+  
+    }
+    .carousel-trash-icon{
+    top: 5px; 
+    left: 90%; }
+
+
+   
+  }

@@ -1,0 +1,96 @@
+.revenue-list {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    background-color: #573976;
+  }
+  
+  .revenue-list:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .revenue-list h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+ color: #fff;
+ border: 1px dotted white;
+ border-radius: 30px;
+ padding: 10px;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    
+  }
+  
+  .revenue-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .revenue-item {
+    margin-bottom: 12px;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .revenue-key {
+    font-weight: bold;
+    color: #ffffff;
+
+    /* flex-basis: 50%; */
+  }
+  
+  .revenue-value {
+    color: #2bff01;
+    font-weight: bold;
+    /* flex-basis: 50%; */
+
+  }
+
+.sort-options {
+    margin-bottom: 20px;
+  }
+  
+  .sort-options label {
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort-options select {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .revenue-list {
+      padding: 15px;
+    }
+  
+    .revenue-list h3 {
+      font-size: 1.5rem;
+    }
+  
+    .revenue-item {
+      margin-bottom: 20px;
+    }
+  
+    .revenue-key,
+    .revenue-value {
+      font-size: 1rem;
+    }
+  }
+  
