@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
@@ -9,6 +9,8 @@ import './Home.css';
 import axios from 'axios';
 import Footer from '../Footer';
 import { FaBirthdayCake, FaCookie, FaIceCream, FaUtensils } from 'react-icons/fa';
+
+import { ProductContext } from '../Contexts/ProductsContext';
 
 export default function Home() {
   const [text] = useTypewriter({
@@ -23,12 +25,15 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
+  const products = useContext(ProductContext);
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get('http://localhost:3001/products');
         const data = res.data;
+        console.log("pd : ", products );
         console.log("data: ", data);
 
         const productMap = new Map();
@@ -73,7 +78,8 @@ export default function Home() {
         setUniqueProducts(uniqueProductsArray);
         setCategoryProducts(categoryProductsArray);
         setCakesByFlavour(cakesByFlavourArray);
-      } catch (error) {
+      }
+       catch (error) {
         console.log("error");
       } finally {
         setLoading(false);

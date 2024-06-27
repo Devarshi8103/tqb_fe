@@ -51,9 +51,11 @@ const navigate = useNavigate();
     if (item.type) {
       (acc[item.type] = acc[item.type] || []).push(item);
     }
+    
     return acc;
   }, {});
 
+ 
   const filteredData = Object.keys(groupedData).reduce((acc, type) => {
     if ((!filterType || filterType === type) && groupedData[type].length > 0) {
       acc[type] = groupedData[type].filter(item => {
@@ -99,6 +101,7 @@ const navigate = useNavigate();
     { value: 'Vanilla', label: 'Vanilla' },
     { value: 'Strawberry', label: 'Strawberry' },
     { value: 'Butterscotch', label: 'Butterscotch' },
+
     // Add more flavor options as needed
   ];
 
@@ -162,7 +165,7 @@ const handleLeftArrowClick=()=>{
       </div>
       {category === 'Cakes' &&
         <div className="type-div">
-       {isLoading ? (<>
+       {  isLoading ? (<>
         {Array(8).fill().map((_, index) => (
     <div className='types-div'>
      <Skeleton className="type-block" width={100} height={20} />
@@ -175,15 +178,29 @@ const handleLeftArrowClick=()=>{
     
          
        </>) : 
-       (   Object.keys(groupedData).map((type, typeIndex) => (
-            <div
-              key={typeIndex}
-              className={`types-div`}
-              onClick={() => handleClick(type)}
-            >
-              <p className={`type-block ${activeType === type ? 'active' : ''}`}>{type === 'none' ? 'All' : type}</p>
-            </div>
-          )))}
+       
+       ( <>
+
+       <div  className="types-div "  onClick={() => handleClick('none')} >
+
+<p className={`type-block ${activeType === 'none' ? 'active' : ''}`}>All</p>
+         
+       </div>
+
+        {Object.keys(groupedData).map((type, typeIndex) => (
+          <div
+            key={typeIndex}
+            className="types-div"
+            onClick={() => handleClick(type)}
+          >
+            <p className={`type-block ${activeType === type ? 'active' : ''}`}>{type === 'none' ? 'All' : type}</p>
+          </div>
+        ))}
+      </>
+      )
+          
+        
+          }
         </div>
       }
 

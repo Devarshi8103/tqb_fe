@@ -10,6 +10,7 @@ export default function AddProducts() {
   const navigate = useNavigate();
 
   const flavourOptions = [
+    { value: "none", label: "none" },
     { value: "Apple", label: "Apple" },
     { value: "Blackforest", label: "Blackforest" },
     { value: "Blue Berry", label: "Blue Berry" },
@@ -33,6 +34,7 @@ export default function AddProducts() {
   ];
 
   const weightOptions = [
+    { value: 0 ,label: "none" },
     { value: 0.5, label: "500gm" },
     { value: 1, label: "1kg" },
     { value: 1.5, label: "1.5kg" },
@@ -70,25 +72,17 @@ export default function AddProducts() {
   const [type, setType] = useState(typesOptions[0]);
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState("");
-  const [formData, setFormData] = useState(new FormData());
+  
   const [productInfo, setProductInfo] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const [render  ,setRender] = useState(false);
+
+
   useEffect(() => {
-    const changeData = () => {
-      const newFormData = new FormData();
-      newFormData.append("image", image);
-      newFormData.append("category", category.value);
-      newFormData.append("productName", productName);
-      newFormData.append("price", price);
-      newFormData.append("weight", weight.value);
-      newFormData.append("flavour", flavour.value);
-      newFormData.append("type", type.value);
-      setFormData(newFormData);
-    };
-    changeData();
+ 
     setProductInfo({
-      _id: editId,
+   
       image,
       category: category.value,
       productName,
@@ -97,11 +91,11 @@ export default function AddProducts() {
       flavour: flavour.value,
       type: type.value,
     });
+    
   }, [image, category, productName, price, weight, flavour, type]);
 
-  useEffect(() => {
-    console.log({ formData });
-  }, [formData]);
+
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -113,7 +107,7 @@ export default function AddProducts() {
       }
     };
     fetchProducts();
-  }, []);
+  }, [render]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -129,25 +123,18 @@ export default function AddProducts() {
 
   useEffect(() => {
     if (editId) {
-      axios
-        .get(`http://localhost:3001/product/${editId}`)
-        .then((response) => {
-          const { image, category, productName, price, weight, flavour, type } =
-            response.data;
-          setPlaceImage(image);
-          setImage(image);
-          setCategory(
-            categoryOptions.find((option) => option.value === category)
-          );
-          setProductName(productName);
-          setPrice(price);
-          setWeight(weightOptions.find((option) => option.value === weight));
-          setFlavour(flavourOptions.find((option) => option.value === flavour));
-          setType(typesOptions.find((option) => option.value === type));
-        })
-        .catch((error) => {
-          console.error("Axios error:", error);
-        });
+      const product = products.find((product) => product._id === editId);
+      if (product) {
+        const { image, category, productName, price, weight, flavour, type } = product;
+        setPlaceImage(image);
+        setImage(image);
+        setCategory(categoryOptions.find((option) => option.value === category));
+        setProductName(productName);
+        setPrice(price);
+        setWeight(weightOptions.find((option) => option.value === weight));
+        setFlavour(flavourOptions.find((option) => option.value === flavour));
+        setType(typesOptions.find((option) => option.value === type));
+      }
     }
   }, [editId]);
 
@@ -155,32 +142,37 @@ export default function AddProducts() {
     e.preventDefault();
 
     if (
-      (!category || !productName || !price || !weight || !flavour) &&
-      !isEdit
-    ) {
+      (!category || !productName || !price || !weight || !flavour) && !isEdit ) {
       return;
     }
 
+
     try {
-      console.log({ formData });
-      console.log({ productInfo });
+      
       if (isEdit) {
-        formData.append("_id", editId);
-        await axios.put(`http://localhost:3001/product/${editId}`, productInfo, 
-          // {
-          // headers: {
-          //   "Content-Type": "multipart/form-data",
-          // },
-        
-        );
-        setIsEdit(false);
-      } else {
-        await axios.post("http://localhost:3001/admin/add-products", productInfo, {
+   
+     console.log("pi :edit  ",productInfo);
+      //  formData.append("_id", editId);
+        await axios.put(`http://localhost:3001/product/${editId}`, productInfo ,
+          {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        });
+        }
+         );
+        setIsEdit(false);
+      } else {
+        console.log("pi : ",productInfo);
+        await axios.post("http://localhost:3001/admin/add-products", productInfo,
+           {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       }
+ 
+      setRender(!render);
 
       setImage("");
       setCategory(categoryOptions[0]);
@@ -200,6 +192,7 @@ export default function AddProducts() {
       .delete(`http://localhost:3001/product/${id}`)
       .then(() => {
         console.log("deleted ok");
+        setRender(!render);
       })
       .catch((error) => {
         console.log("Error", error);

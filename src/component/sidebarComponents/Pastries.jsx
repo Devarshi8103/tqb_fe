@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 import Card from '../Card'; 
+import { ProductContext } from '../Contexts/ProductsContext';
 
 export default function Pastries() {
-  const [pastryData, setPastryData] = useState([]);
+  const products = useContext(ProductContext);
    
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get('http://localhost:3001/products');
-        setPastryData(res.data);
-      } catch (error) {
-        console.log("error");
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  const filteredPastries = pastryData.filter(pastry => pastry.category === 'Pastries');
+  const filteredPastries = products.filter(product => product.category === 'Pastries');
 
   return (
     <div className='cakes'>

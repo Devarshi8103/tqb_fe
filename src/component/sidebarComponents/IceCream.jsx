@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext} from 'react';
 import Card from '../Card'; 
+import { ProductContext } from '../Contexts/ProductsContext';
 
 
 
 export default function IceCream() {
-  const [iceCreamData, setIceCreamData] = useState([]);
-   
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get('http://localhost:3001/products');
-        setIceCreamData(res.data);
-      } catch (error) {
-        console.log("error");
-      }
-    };
-    fetchProducts();
-  }, []);
+  const products = useContext(ProductContext);
 
-  const filteredIceCreams = iceCreamData.filter(iceCream => iceCream.category === 'Ice-Creams');
+
+  const filteredIceCreams = products.filter(product => product.category === 'Ice-Creams');
 
   return (
     <div className='cakes'>
