@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './ViewAllBill.css';
 import axios from 'axios'; 
 import Loader from '../Loader';
-import {  FaEye, FaHornbill, FaMoneyBill, FaMoneyBillWave, FaMoneyBillWaveAlt, FaPallet, FaTrash, FaWhatsapp, } from 'react-icons/fa';
+import {   FaTrash, FaWhatsapp} from 'react-icons/fa';
 
 
-export default function ViewAllBill() {
+export default function ViewAllBill({reload}) {
     const [groupedBills, setGroupedBills] = useState({});
     const [loading , setLoading]= useState(true); 
 
@@ -27,15 +27,16 @@ export default function ViewAllBill() {
                     acc[date].push(bill);
                     return acc;
                 }, {});
-                setLoading(false);
                 setGroupedBills(billsByDate);
+                setLoading(false);
+               
             } catch (error) {
                 console.log("Error fetching bills", error);
             }
         };
 
         fetchBills();
-    }, []); // Empty dependency array ensures this runs only once after the initial render
+    }, [reload]); 
 
     const handleViewBill = (billId) => {
         const url = `http://localhost:3000/invoiceViewer/${billId}`;
@@ -43,6 +44,7 @@ export default function ViewAllBill() {
     };
 
     const handleDeleteBill = async (billId) => {
+        setGroupedBills(true);
         try {
             await axios.delete(`http://localhost:3001/invoice/${billId}`);
             // Update state to remove the deleted bill
@@ -54,6 +56,7 @@ export default function ViewAllBill() {
                 return acc;
             }, {});
             setGroupedBills(updatedBills);
+            setLoading(false);
         } catch (error) {
             console.log("Error deleting bill", error);
         }

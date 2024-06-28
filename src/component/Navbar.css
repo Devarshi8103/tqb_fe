@@ -97,8 +97,14 @@
   background-clip: text;
     }
     100% {
-        background-position: 0% 50%;
+      background: linear-gradient(#ffdd00 , #ffa600);
+      -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
     }
+   
+    
+
 }
 
 /* Search bar styles */
@@ -161,7 +167,7 @@
 
 .menu a {
   text-decoration: none;
-  color: #ffca28 ;
+  color: #ffdd00 ;
   display: flex;
   align-items: center;
   transition: .3s ease-in-out;
@@ -176,12 +182,12 @@
   a {
     color: #070707;
   }
-  background-color: #ffca28 ;
+  background-color: #ffdd00 ;
 }
 
 li.active {
   color: #070707;
-  background-color: #ffca28;
+  background-color: #ffdd00;
 }
 
 .menu svg {
@@ -209,7 +215,7 @@ li.active {
   }
   .menu a {
     text-decoration: none;
-    color: #ffca28;
+    color: #ffdd00;
     display: flex;
     align-items: center;
   }

@@ -5,13 +5,21 @@
   width: 90%;
   margin: 20px auto;
 }
+.h2-tag{
+  text-align: center;
+}
 .view-bill-div{
   display: flex;
   justify-content: center;
   margin: 10px;
 
 }
-
+.fa-sync{
+  position: absolute;
+  right: 20px;
+  
+ 
+}
 .view-bill-btn{
 color: #fff;
 font-size: 18px;

@@ -6,12 +6,12 @@ import axios from 'axios';
 import Creatable from 'react-select/creatable';
 import { useNavigate } from 'react-router-dom';
 import ViewAllBill from './ViewAllBill.jsx';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft , FaSync } from 'react-icons/fa';
 
 export default function AddToBill() {
   const navigate = useNavigate();
   const [viewBills, setViewBills] = useState(false);
-
+const [reload , setReload] = useState(false);
   const categoryOptions = [
     { value: 'Cakes', label: 'Cakes' },
     { value: 'Pastries', label: 'Pastries' },
@@ -190,6 +190,10 @@ export default function AddToBill() {
     navigate('/admin/home');
   }
 
+  const handleReload=()=>{
+    setReload(!reload);
+
+  }
   return (
     <>
       <div className='view-bill-div'>
@@ -199,10 +203,13 @@ export default function AddToBill() {
         <button className='view-bill-btn' onClick={() => setViewBills(!viewBills)}>
           {viewBills ? 'Make Bill' : 'View Bills'}
         </button>
+        {viewBills &&
+        <FaSync className='fa-sync' onClick={()=>handleReload()} size={20} />
+}
       </div>
       {viewBills ? (
         <div>
-          <ViewAllBill />
+          <ViewAllBill reload = {reload} />
         </div>
       ) : (
         <>
@@ -344,9 +351,9 @@ export default function AddToBill() {
             <button onClick={handleReset}>Reset</button>
           </div>
           <div className='bill-pdf' ref={pdfRef}>
-            <h2>The Queen Baker</h2>
+            <h2 className='h2-tag'>The Queen Baker</h2>
             <p className='address'>Shop No.3 Shiv Shakti Complex Bhatha Lali Faliya</p>
-            <h2>Invoice</h2>
+            <h2 className='h2-tag'>Invoice</h2>
             <hr />
             <div className='customer-name'>
               <b>Customer Name: </b> {customerData.customerName}

@@ -159,15 +159,16 @@ export default function Home() {
       </div>
 
       <div className='text-effect'>
-        <img src="https://fthmb.tqn.com/ZhiQaxbYq2Rs4ee4vjTR77j2WZo=/3918x2736/filters:fill(auto,1)/high-angle-view-of-multi-colored-baking-devices-692741553-5a1f2e32eb4d52001aed7d72.jpg" alt="" />
+        {/* <img src="https://fthmb.tqn.com/ZhiQaxbYq2Rs4ee4vjTR77j2WZo=/3918x2736/filters:fill(auto,1)/high-angle-view-of-multi-colored-baking-devices-692741553-5a1f2e32eb4d52001aed7d72.jpg" alt="" /> */}
+        <img src="https://res.cloudinary.com/dxtqtupqn/image/upload/v1719567263/text_effect_background_image/bg-image.jpg" alt="" />
         <h1 style={{ color: 'white' }}> WE BAKE
-          <span style={{ color: 'yellow', fontWeight: 'bold', marginLeft: '10px' }}>{text}</span>
+          <span style={{ color: '#ffdd00', fontWeight: 'bold', marginLeft: '10px' }}>{text}</span>
           <span className='cursor'><Cursor /></span>
         </h1>
       </div>
 
       <div className='category-list'>
-        <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1>
+        {/* <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1> */}
         {loading ? (
            
              <Skeleton  className='category-product' style={{marginTop:'50px'}} count={5}  height={330} />
@@ -187,8 +188,10 @@ export default function Home() {
                 {categoryItem.category === 'Cakes' ? '' : <p className='view-all' onClick={() => handleViewAllClick(categoryItem.category)}>View All</p>}
               </div>
 
+
               <div className={`category-products`}>
                 {categoryItem.category === 'Cakes' ? <div className={`category-list ${categoryItem.category}`}>
+                <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1>
                   {cakesByFlavour.map((flavourItem, index) => (
                     <div key={index} className={`category-item`}>
                       <div className='category-name-view-all'>

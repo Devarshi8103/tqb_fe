@@ -22,9 +22,12 @@ transform: translate(-50%, -50%);
 
   h2 {
     margin-bottom: 25px;
-    color: #ffca28;
+    color: #ffdd00;
     font-size: 28px;
     font-weight: 600;
+    
+
+   
   }
   
 }
@@ -49,7 +52,7 @@ transform: translate(-50%, -50%);
 }
 
 .sign-in-form input:focus {
-  border-color: #ffca28;
+  border-color: #ffdd00;
   box-shadow: 0 0 8px rgba(255, 202, 40, 0.6);
 }
 
@@ -57,7 +60,7 @@ transform: translate(-50%, -50%);
   padding: 10px;
   font-size:14px;
   border-radius: 5px;
-  background-color: #ffca28;
+  background-color: #ffdd00;
   color: #fff;
   border: none;
   cursor: pointer;

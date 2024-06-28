@@ -45,7 +45,7 @@ export default function Footer() {
           <h2>#WeBakeHappiness</h2>
         </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Cake Delights. All rights reserved.</p>
+        <p>&copy; 2024 The Queen Baker . All rights reserved.</p>
       </div>
     </footer>
   );

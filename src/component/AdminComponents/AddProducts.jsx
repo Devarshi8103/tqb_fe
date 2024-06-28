@@ -188,11 +188,14 @@ export default function AddProducts() {
   };
 
   const deleteProduct = (id) => {
+    setLoading(true);
+
     axios
       .delete(`http://localhost:3001/product/${id}`)
       .then(() => {
         console.log("deleted ok");
         setRender(!render);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("Error", error);
@@ -203,7 +206,7 @@ export default function AddProducts() {
   };
 
   return (
-    <>
+    <div className="top-div-add-products">
       <FaArrowLeft
         className="left-arrow"
         onClick={() => handleLeftArrow()}
@@ -385,7 +388,7 @@ export default function AddProducts() {
           ))
         )}
       </div>
-    </>
+    </div>
   );
 }
 
