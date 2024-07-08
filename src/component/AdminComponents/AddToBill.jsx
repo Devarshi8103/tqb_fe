@@ -177,7 +177,7 @@ const [reload , setReload] = useState(false);
       return;
     }
 
-    const url = `http://localhost:3000/invoiceViewer/${invoiceId}`;
+    const url = `https://tqb-be.onrender.com/invoiceViewer/${invoiceId}`;
     const message = `Hi ${customerData.customerName}, \n\nView your Bill here: ${url} \n\nThanks For Shopping From \n *The Queen Baker* \n#WeBakeHappiness`;
 
     const whatsappUrl = `https://wa.me/91${customerData.mobileNumber}?text=${encodeURIComponent(message)}`;

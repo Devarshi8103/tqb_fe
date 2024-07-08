@@ -19,7 +19,7 @@ export default function SidebarRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/cakes" element={<Cakes />} />
         <Route path="/pastries" element={<Pastries />} />
-        <Route path="/iceCream" element={<IceCream />} />
+        <Route path="/ice-Creams" element={<IceCream />} />
         <Route path="/biscuits" element={<Biscuits />} />
        
       </Routes>

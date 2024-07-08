@@ -64,7 +64,7 @@ export default function ViewAllBill({reload}) {
 
    const  handleShareBill = (id, customerName , mobileNumber)=>{
 
-    const url = `http://localhost:3000/invoiceViewer/${id}`;
+    const url = `https://tqb-be.onrender.com/invoiceViewer/${id}`;
     const message = `Hi ${customerName}, \n\nView your Bill here: ${url} \n\nThanks For Shopping From \n *The Queen Baker* \n#WeBakeHappiness`;
 
     const whatsappUrl = `https://wa.me/91${mobileNumber}?text=${encodeURIComponent(message)}`;

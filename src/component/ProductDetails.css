@@ -10,7 +10,7 @@
  
    
     max-width: 800px;
-    height: auto;
+    height: 100vh;
     padding-bottom: 20px;
 
     margin: 0px auto;
@@ -22,6 +22,7 @@
     font-family: 'Playfair Display', serif;
 
     color: #5a4283;
+  
   
     margin-bottom: 20px;
     text-transform: uppercase;

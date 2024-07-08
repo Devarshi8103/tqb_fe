@@ -277,7 +277,7 @@ font-size: 29.3px;
   box-shadow: 0 2px 4px rgba(144, 9, 9, 0.1);
   padding: 10px;
   flex-shrink: 0;
-  min-width: 150px;
+  /* min-width: 150px; */
 }
 
 .product-category-image {
@@ -419,4 +419,21 @@ margin-top: 8px;
     height: 300px;
   }
  
+}
+
+@media (max-width: 500px) {
+
+.category-product{
+width: 120px;
+
+}
+.product-category-image {
+  width:100px ;
+  height: 100px;
+}
+.category-item{
+  margin: 10px 0px ;
+
+}
+
 }

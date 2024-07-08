@@ -18,7 +18,7 @@ export const SidebarData =[
     icon : <FaUtensils /> 
 },
 {
-  path :   "/iceCream",
+  path :   "/ice-Creams",
   name : "IceCream" , 
   icon : <FaIceCream /> 
 },
