@@ -28,11 +28,13 @@ const SignInPage = () => {
           placeholder="Email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)} 
+          required={true}
         />
         <input 
           type="password" 
           placeholder="Password" 
           value={password}
+          required={true}
           onChange={(e) => setPassword(e.target.value)} 
         />
         <button type="submit">Sign In</button>
