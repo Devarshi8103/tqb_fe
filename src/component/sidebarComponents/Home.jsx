@@ -171,7 +171,7 @@ export default function Home() {
         {/* <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1> */}
         {loading ? (
            
-             <Skeleton  className='category-product' style={{marginTop:'50px'}} count={5}  height={330} />
+             <Skeleton  className='category-product' style={{marginTop:'50px'}} count={5}  height={330}  />
 
  
            ) : (
