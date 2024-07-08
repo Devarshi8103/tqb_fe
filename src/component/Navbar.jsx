@@ -55,7 +55,7 @@ const navigate = useNavigate();
 
         </div> */}
 
-        <div onDragEnd={()=>handleDrag()} >
+        <div onClick={()=>handleDrag()} >
           <div className="admin-logo">
             {/* <FaUser size={20} /> */}
             <img className='shop-img' src="https://res.cloudinary.com/dmcxyn0eu/image/upload/v1695232782/Static%20Images/logo/tqb_logo.png " alt="Shop Logo"  />
