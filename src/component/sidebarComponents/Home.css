@@ -424,12 +424,12 @@ margin-top: 8px;
 @media (max-width: 500px) {
 
 .category-product{
-width: 120px;
+width: 134px;
 
 }
 .product-category-image {
-  width:100px ;
-  height: 100px;
+  width:134px ;
+  height: 134px;
 }
 .category-item{
   margin: 10px 0px ;

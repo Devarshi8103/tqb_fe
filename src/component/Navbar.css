@@ -269,12 +269,13 @@ li.active {
   /* Shop info styles */
 
   .shop-img {
-    width: 68px;
-  height: 68px;
-  margin-right: 10px;
+    width: 58px;
+  height: 58px;
+  margin-right: 8px;
+
 
 }
   .shop-name {
-    font-size: 29px;
+    font-size: 24.5px;
   }
 }

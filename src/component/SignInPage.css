@@ -81,6 +81,10 @@ transform: translate(-50%, -50%);
 }
 
 @media (max-width: 500px) {
+  .sign-in-container {
+width: 65%;
+
+  }
 
   .sign-in-form input{
     margin: 10px 28px;
