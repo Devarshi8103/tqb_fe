@@ -79,3 +79,17 @@ transform: translate(-50%, -50%);
   outline: none;
   box-shadow: 0 0 10px rgba(255, 202, 40, 0.6);
 }
+
+@media (max-width: 500px) {
+
+  .sign-in-form input{
+    margin: 10px 28px;
+
+
+  }
+  .sign-in-form button{
+    margin: 10px 28px;
+  }
+
+
+}
