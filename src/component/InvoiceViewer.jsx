@@ -18,7 +18,7 @@ const InvoiceViewer = () => {
   useEffect(() => {
     const fetchPdfUrl = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/invoice/${id}`);
+        const response = await axios.get(`https://tqb-be.onrender.com/invoice/${id}`);
         console.log("res data for url ", response.data.filePath);
         setPdfUrl(response.data.filePath);
       } catch (error) {

@@ -12,7 +12,7 @@ export default function ViewAllBill({reload}) {
     useEffect(() => {
         const fetchBills = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/invoice');
+                const response = await axios.get('https://tqb-be.onrender.com/invoice');
                 const sortedBills = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 
                 const billsByDate = sortedBills.reduce((acc, bill) => {
@@ -46,7 +46,7 @@ export default function ViewAllBill({reload}) {
     const handleDeleteBill = async (billId) => {
         setGroupedBills(true);
         try {
-            await axios.delete(`http://localhost:3001/invoice/${billId}`);
+            await axios.delete(`https://tqb-be.onrender.com/invoice/${billId}`);
             // Update state to remove the deleted bill
             const updatedBills = Object.entries(groupedBills).reduce((acc, [date, bills]) => {
                 const filteredBills = bills.filter(bill => bill._id !== billId);

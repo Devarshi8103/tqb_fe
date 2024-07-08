@@ -121,7 +121,7 @@ const [reload , setReload] = useState(false);
         flavour: newProduct.flavour,
       };
 
-      const response = await axios.post('http://localhost:3001/expense/add-expense', data);
+      const response = await axios.post('https://tqb-be.onrender.com/expense/add-expense', data);
       console.log('Product data saved successfully:', response.data);
     } catch (error) {
       console.error('Error saving product data:', error);
@@ -135,7 +135,7 @@ const [reload , setReload] = useState(false);
       formData.append('customerName', customerData.customerName);
       formData.append('mobileNumber', customerData.mobileNumber);
 
-      const response = await axios.post('http://localhost:3001/invoice/upload-invoice', formData, {
+      const response = await axios.post('https://tqb-be.onrender.com/invoice/upload-invoice', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

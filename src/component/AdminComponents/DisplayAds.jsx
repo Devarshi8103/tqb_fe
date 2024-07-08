@@ -31,7 +31,7 @@ export default function DisplayAds() {
       const formData = new FormData();
       formData.append('image', carouselImage);
 
-      await axios.post('http://localhost:3001/upload-carousel-images', formData, {
+      await axios.post('https://tqb-be.onrender.com/upload-carousel-images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -47,7 +47,7 @@ export default function DisplayAds() {
 
   const fetchCarouselImages = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/carousel-images');
+      const res = await axios.get('https://tqb-be.onrender.com/carousel-images');
       console.log('Image data:', res.data);
       setCarouselImages(res.data);
     } catch (error) {
@@ -61,7 +61,7 @@ export default function DisplayAds() {
 
   const handleDeleteImage = async (imageId) => {
     try {
-      await axios.delete(`http://localhost:3001/delete-carousel-image/${imageId}`);
+      await axios.delete(`https://tqb-be.onrender.com/delete-carousel-image/${imageId}`);
       console.log('Image deleted!');
       fetchCarouselImages(); // Refresh the carousel images after deletion
     } catch (error) {

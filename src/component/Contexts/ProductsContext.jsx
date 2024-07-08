@@ -9,7 +9,7 @@ const AllProductsProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get('http://localhost:3001/products');
+                const res = await axios.get('https://tqb-be.onrender.com/products');
                 setProducts(res.data);
             } catch (error) {
                 console.log("Error fetching products:", error);

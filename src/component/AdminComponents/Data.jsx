@@ -29,7 +29,7 @@ export default function Data() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/expense/expense-data');
+        const response = await axios.get('https://tqb-be.onrender.com/expense/expense-data');
         const sortedExpenses = response.data.sort((a, b) => new Date(b.formattedDate) - new Date(a.formattedDate));
         setExpenses(sortedExpenses);
         setFilteredExpenses(sortedExpenses);
@@ -212,7 +212,7 @@ export default function Data() {
 
   const handleDeleteExpense = async () => {
     try {
-      await axios.delete(`http://localhost:3001/expense/${expenseToDelete._id}`);
+      await axios.delete(`https://tqb-be.onrender.com/expense/${expenseToDelete._id}`);
       setExpenses(expenses.filter(exp => exp._id !== expenseToDelete._id));
       setFilteredExpenses(filteredExpenses.filter(exp => exp._id !== expenseToDelete._id));
       setShowModal(false);

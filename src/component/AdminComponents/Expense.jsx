@@ -98,7 +98,7 @@ export default function Expense() {
         flavour: newProduct.flavour,
       };
 
-      const response = await axios.post('http://localhost:3001/expense/add-expense', data);
+      const response = await axios.post('https://tqb-be.onrender.com/expense/add-expense', data);
       console.log('Product data saved successfully:', response.data);
     } catch (error) {
       console.error('Error saving product data:', error);

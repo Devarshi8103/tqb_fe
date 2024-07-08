@@ -99,7 +99,7 @@ export default function AddProducts() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/products");
+        const res = await axios.get("https://tqb-be.onrender.com/products");
         setProducts(res.data);
         setLoading(false);
       } catch (error) {
@@ -153,7 +153,7 @@ export default function AddProducts() {
    
      console.log("pi :edit  ",productInfo);
       //  formData.append("_id", editId);
-        await axios.put(`http://localhost:3001/product/${editId}`, productInfo ,
+        await axios.put(`https://tqb-be.onrender.com/product/${editId}`, productInfo ,
           {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -163,7 +163,7 @@ export default function AddProducts() {
         setIsEdit(false);
       } else {
         console.log("pi : ",productInfo);
-        await axios.post("http://localhost:3001/admin/add-products", productInfo,
+        await axios.post("https://tqb-be.onrender.com/admin/add-products", productInfo,
            {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -191,7 +191,7 @@ export default function AddProducts() {
     setLoading(true);
 
     axios
-      .delete(`http://localhost:3001/product/${id}`)
+      .delete(`https://tqb-be.onrender.com/product/${id}`)
       .then(() => {
         console.log("deleted ok");
         setRender(!render);

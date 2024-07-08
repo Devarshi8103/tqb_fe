@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:3001/products');
+        const res = await axios.get('https://tqb-be.onrender.com/products');
         const data = res.data;
         console.log("pd : ", products );
         console.log("data: ", data);
@@ -90,7 +90,7 @@ export default function Home() {
 
   const fetchCarouselImages = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/carousel-images');
+      const res = await axios.get('https://tqb-be.onrender.com/carousel-images');
       console.log('Image data:', res.data);
       setCarouselImages(res.data);
     } catch (error) {

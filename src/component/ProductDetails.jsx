@@ -11,7 +11,7 @@ export default function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/product/${id}`);
+        const res = await axios.get(`https://tqb-be.onrender.com/product/${id}`);
         setProductData(res.data);
         console.log("products data:", res.data);
       } catch (error) {
