@@ -16,7 +16,7 @@ function App() {
           
         <Routes>
         
-          <Route exact path="/*" element={<SidebarRoutes />} />
+          <Route path="/*" element={<SidebarRoutes />} />
           <Route path="/signIn" element={<SignInPage />} />
           <Route path='admin/*' element={<AdminRoutes />}/>
           <Route path="/invoiceViewer/:id" element={< InvoiceViewer />} />
