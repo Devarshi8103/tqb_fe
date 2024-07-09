@@ -216,7 +216,7 @@ const handleLeftArrowClick=()=>{
                     </h2>}
                <div className='type-items'>     
 
-                 { Array(8).fill().map((_, index) => (
+                 { Array(10).fill().map((_, index) => (
 
 <div key={index} className="card-list skeleton">
               
