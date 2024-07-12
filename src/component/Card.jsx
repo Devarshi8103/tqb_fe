@@ -47,7 +47,9 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
   }, [data]);
 
   if (!data || data.length === 0) {
-    return <p>No data available</p>;
+   
+     
+    return <h1>No data available</h1>;
   }
 
   const { category } = data[0];
@@ -107,12 +109,13 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
   };
   return (
     <div className="card-center">
+      
       <div className="header-name">
 
         
         <p className='left-arrow-card' onClick={()=>handleLeftArrowClick()} > <FaArrowLeft  size={20}/></p>
         
-        <p className={`header-name-${category}`}>{category}</p>
+        <p className={`header-name-${category}`}>{ data.length===0 ? "NO Data" : category}</p>
       </div>
       <div className="filter-controls">
         <label>

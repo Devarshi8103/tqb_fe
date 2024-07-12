@@ -15,8 +15,10 @@ margin: 130px auto 50px auto;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
   color: #007BFF;
+
+
   border: 1px dotted #007bff;
-  background-color: #fff;
+  
   border-radius:30px;
   
     font-size: 50px;
@@ -90,6 +92,7 @@ margin: 130px auto 50px auto;
  
  
   background-color: #c6e9ff;
+  padding-bottom: 10px;
   .item-price{
    
     background-color: #007BFF;
@@ -121,15 +124,18 @@ margin: 130px auto 50px auto;
   grid-column: 1 / -1; /* Start each type-group at the first column */
   width: 100%;
 
+  padding-bottom: 10px;
+ 
+
 }
-.type-name {
+.type-name {margin-top: 0px;
 background-color: #fff;
   font-size: 34px;
   font-weight: bold;
-  /* margin-bottom: 20px; */
+  margin-bottom: 10px;
   text-align: center;
   padding: 10px;
-  padding-left: 20px;
+  border: 1px dotted black;
  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
    /* border-top-right-radius: 80px ;
@@ -203,7 +209,9 @@ text-align: center;
   height: 30px;
    
   margin: 0 auto;
-
+ display: flex;
+ align-items: center;
+ justify-content: center;
    
   font-size: 17px;
   background-color:  #06c13b ;
@@ -483,7 +491,7 @@ cursor: pointer;
   }
 
   .type-name{
-    margin-top: 10px;
+ 
     font-size: 28px;
   }
 

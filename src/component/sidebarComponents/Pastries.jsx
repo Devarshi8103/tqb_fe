@@ -11,7 +11,9 @@ export default function Pastries() {
     <div className='cakes'>
       
       <div className='cake-list'>
+        
         <Card data={filteredPastries} />
+
       </div>
     </div>
   );

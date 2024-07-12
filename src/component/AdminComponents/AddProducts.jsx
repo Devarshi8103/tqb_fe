@@ -35,12 +35,18 @@ export default function AddProducts() {
 
   const weightOptions = [
     { value: 0 ,label: "none" },
+    { value: 0.25, label: "250gm" },
     { value: 0.5, label: "500gm" },
     { value: 1, label: "1kg" },
     { value: 1.5, label: "1.5kg" },
     { value: 2, label: "2kg" },
+    { value: 2.5, label: "2.5kg" },
     { value: 3, label: "3kg" },
-    { value: 0.25, label: "250gm" },
+    { value: 3.5, label: "3.5kg" },
+    { value: 4, label: "4kg" },
+    { value: 4.5, label: "4.5kg" },
+    { value: 5, label: "5kg" },
+    
   ];
 
   const categoryOptions = [
@@ -52,13 +58,13 @@ export default function AddProducts() {
 
   const initialTypeOptions = [
     { value: "none", label: "none" },
-    { value: "BirthDay Cakes", label: "BirthDay Cake" },
-    { value: "Anniversary Cakes", label: "Anniversary Cake" },
-    { value: "Mother's Day Cakes", label: "Mothers day Cake" },
-    { value: "Wedding Cakes", label: "Wedding Cake" },
-    { value: "Photo Cakes", label: "Photo Cake" },
-    { value: "Theme Cakes", label: "Theme Cake" },
-    { value: "Customized Cakes", label: "Customized Cake" },
+    { value: "BirthDay Cakes", label: "BirthDay Cakes" },
+    { value: "Anniversary Cakes", label: "Anniversary Cakes" },
+    { value: "Mother's Day Cakes", label: "Mother's Day Cakes" },
+    { value: "Wedding Cakes", label: "Wedding Cakes" },
+    { value: "Photo Cakes", label: "Photo Cakes" },
+    { value: "Theme Cakes", label: "Theme Cakes" },
+    { value: "Customized Cakes", label: "Customized Cakes" },
   ];
 
   const [products, setProducts] = useState([]);
@@ -122,6 +128,7 @@ export default function AddProducts() {
       ...initialTypeOptions,
       ...uniqueType.map(type => ({ value: type, label: type }))
     ];
+    console.log("type options : ",typesOptions);
     setTypesOptions(newTypeOptions);
   };
 

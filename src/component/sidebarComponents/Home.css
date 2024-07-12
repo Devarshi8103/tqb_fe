@@ -28,7 +28,6 @@
   margin-top: 20px;
   display: flex;
   justify-content: start;
-  gap: 20px;
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent items from wrapping to the next line */
   padding-bottom: 10px; /* Optional: Add some space below the items for better visibility */
@@ -88,7 +87,8 @@
   position: relative; /* Ensure the container is positioned relatively */
   width: 100%; 
   margin-top: 20px;
-height: 180px;
+height: 200px;
+
 }
 
 
@@ -119,7 +119,7 @@ font-size: 29.3px;
 
 .text-effect img{
   width: 100%;
-  height: 180px;
+  height: 200px;
 
   object-fit: cover; 
  }
@@ -130,7 +130,7 @@ font-size: 29.3px;
   display: flex;
   flex-direction: column; /* Align items in a column */
   overflow-x: hidden; /* Prevent horizontal scrolling for the whole category list */
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .category-item {
@@ -161,6 +161,7 @@ font-size: 29.3px;
   color: #007BFF;
   margin-bottom: 0px;
   margin-left: 20px;
+  margin-top: 0px;
 
 
 }
@@ -289,6 +290,9 @@ width: 152px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 
+}.category-product.skeleton{
+  width: 100%;
+  
 }
 
 /* .product-category-image {
@@ -309,7 +313,7 @@ width: 152px;
   font-size: 16px;
   text-align: center;
   margin: 0 ;
-width: 70%;
+  
   margin-top: 5px; /* Space between paragraphs */
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflow text */
@@ -345,6 +349,7 @@ width: 70%;
   margin-top: 10px;
   font-size: 18px;
   font-weight: 600;
+  width: 100%;
   padding-bottom: 5px;
 }
 

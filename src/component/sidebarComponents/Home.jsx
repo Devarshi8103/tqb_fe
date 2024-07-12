@@ -24,6 +24,7 @@ export default function Home() {
   const [cakesByFlavour, setCakesByFlavour] = useState([]);
   const [cakesByType, setCakesByType] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [carouselLoading, setCarouselLoading] = useState(true);
 
   const navigate = useNavigate();
   const products = useContext(ProductContext);
@@ -107,9 +108,11 @@ export default function Home() {
 
   const fetchCarouselImages = async () => {
     try {
+      setCarouselLoading(true);
       const res = await axios.get('https://tqb-be.onrender.com/carousel-images');
       console.log('Image data:', res.data);
       setCarouselImages(res.data);
+      setCarouselLoading(false);
     } catch (error) {
       console.log('Error fetching carousel images:', error);
     }
@@ -140,10 +143,10 @@ export default function Home() {
     <>
       <div className='home-div'>
         <div className="home-carousel-images">
-          {loading ? (
+          {carouselLoading ? (
             <Skeleton className='home-image' height={190} />
           ) : (
-            <Carousel autoPlay interval={3000} infiniteLoop showThumbs={false} showStatus={false} swipeable={true}>
+            <Carousel autoPlay interval={3000}  infiniteLoop={true} showThumbs={false} showStatus={false}  swipeable={true}>
               {carouselImages.map((image, index) => (
                 <div key={index}>
                   <img className='home-image' src={image.carouselImage} alt="images" />
@@ -188,7 +191,7 @@ export default function Home() {
         {/* <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1> */}
         {loading ? (
            
-             <Skeleton  className='category-product' style={{marginTop:'50px'}} count={5}  height={330}  />
+             <Skeleton  className='category-product skeleton' style={{marginTop:'50px'}} count={5}  height={330}  />
 
  
            ) : (
