@@ -5,6 +5,8 @@
     display: flex;
     justify-content: start;
   margin-left: 150px;
+  font-size:14px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .name-mobile {

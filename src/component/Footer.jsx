@@ -29,7 +29,7 @@ export default function Footer() {
 
         <h3 className='footer-headers'>Review</h3>
         <p>
-       <a href="https://www.google.com/maps/place/The+Queen+Baker,+Lali+Faliya,+Shop+no+G3,+ShivShakti+Complex,+Bhatha,+near+Damla+faliya+cricket+ground,+Bilimora,+Gujarat+396310/@20.7888755,72.954168,17z/data=!4m6!3m5!1s0x3be0ef7c9dce6edd:0xc0b93b979296a271!8m2!3d20.7885441!4d72.9539316!16s%2Fg%2F11tjc4vjhf"
+       <a href="https://search.google.com/local/writereview?placeid=ChIJ3W7OnXzv4DsRcaKWkpc7ucA"
        target='_blank'>   <img
             className="review"
             src="https://res.cloudinary.com/dmcxyn0eu/image/upload/v1695316698/Static%20Images/google_review_v1.0.png"

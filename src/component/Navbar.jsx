@@ -33,7 +33,8 @@ const navigate = useNavigate();
   }, []);
 
  const  handleDrag=()=>{
-  navigate('/signIn');
+  navigate('admin/home');
+  // navigate('/signIn');
  }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Creatable from 'react-select/creatable';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,20 @@ import './Expense.css';
 
 export default function Expense() {
   const navigate = useNavigate();
+  const [products , setProducts] = useState([]);
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+        try {
+            const res = await axios.get('https://tqb-be.onrender.com/products');
+            setProducts(res.data);
+        } catch (error) {
+            console.log("Error fetching products:", error);
+        }
+    };
+    fetchProducts();
+}, []);
+
 
   const categoryOptions = [
     { value: 'Cakes', label: 'Cake' },
@@ -26,16 +40,36 @@ export default function Expense() {
     { value: 0, label: 'none' }
   ];
 
-  const flavourOptions = [
-    { value: 'Chocolate', label: 'Chocolate' },
-    { value: 'Vanilla', label: 'Vanilla' },
-    { value: 'Strawberry', label: 'Strawberry' },
-    { value: 'Mango', label: 'Mango' },
+  const initialFlavourOptions = [
+    { value: "none", label: "none" },
+    { value: "Apple", label: "Apple" },
+    { value: "Blackforest", label: "Blackforest" },
+    { value: "Blue Berry", label: "Blue Berry" },
+    { value: "Butterscotch", label: "Butter Scotch" },
+    { value: "Coconut", label: "Coconut" },
+    { value: "Chocolate", label: "Chocolate" },
+    { value: "Chocolate Almond", label: "Chocolate Almond" },
+    { value: "Faluda", label: "Faluda" },
+    { value: "Icecream Faluda", label: "Icecream Faluda" },
+    { value: "Kit Kat", label: "Kit Kat" },
+    { value: "Litchi", label: "Litchi" },
+    { value: "Mango", label: "Mango" },
+    { value: "Mangorabdi", label: "Mango Rabdi" },
+    { value: "Pan Gulkand", label: "Pan Gulkand" },
+    { value: "Pineapple", label: "Pine Apple" },
+    { value: "Pineapple", label: "Pine Apple" },
+    { value: "Pista", label: "Pista" },
+    { value: "Rasmalai", label: "Rasmalai" },
+    { value: "Red Velvet", label: "Red Velvet" },
+    { value: "Strawberry", label: "Strawberry" },
+    { value: "Vanilla", label: "Vanilla" },
   ];
 
   const [category, setCategory] = useState(categoryOptions[0]);
   const [weight, setWeight] = useState(weightOptions[0]);
-  const [flavour, setFlavour] = useState(flavourOptions[0]);
+  const [flavour, setFlavour] = useState(initialFlavourOptions[0]);
+  const [flavourOptions, setFlavourOptions] = useState(initialFlavourOptions);
+
 
   const [customerData, setCustomerData] = useState({
     customerName: '',
@@ -47,6 +81,27 @@ export default function Expense() {
     price: '',
     quantity: 1,
   });
+
+
+  useEffect(() => {
+    console.log("bill products : ",products);
+    updateFlavourOptions(products);
+  }, [products]);
+
+  const updateFlavourOptions = (products) => {
+    if (!products || !Array.isArray(products)) {
+      // Handle case where products is not defined or not an array
+      return;
+    }
+    
+    const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
+    const newFlavourOptions = [
+      ...initialFlavourOptions,
+      ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))
+    ];
+    setFlavourOptions(newFlavourOptions);
+  };
+  
 
   const handleCustomerInputChange = (e) => {
     const { name, value } = e.target;

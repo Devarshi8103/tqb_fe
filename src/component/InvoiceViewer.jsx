@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-import PDFViewer from 'pdf-viewer-reactjs';
 
-// Define workerSrc globally without importing pdfjs directly
-const workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js';
+
 
 const InvoiceViewer = () => {
   const { id } = useParams();
@@ -29,7 +26,7 @@ const InvoiceViewer = () => {
     fetchPdfUrl();
   }, [id]);
 
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
 
   return (
     <div className="invoice-viewer">

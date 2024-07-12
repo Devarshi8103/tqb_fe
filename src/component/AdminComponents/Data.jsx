@@ -284,7 +284,7 @@ const handleLeftArrow = ()=>{
    
       </div>
     
-     <div className='type-div'>
+     <div className='type-div data'>
         
         {sortRevenue.map((sr , index)=>(
       <div key={index} className={`types-div ${active}`} onClick={()=> handleActive(sr.title ,sr.list ) } >

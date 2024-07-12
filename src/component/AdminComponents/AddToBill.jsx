@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import '../AdminComponents/AddToBill.css';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -6,12 +6,27 @@ import axios from 'axios';
 import Creatable from 'react-select/creatable';
 import { useNavigate } from 'react-router-dom';
 import ViewAllBill from './ViewAllBill.jsx';
-import { FaArrowLeft , FaSync } from 'react-icons/fa';
+import { FaArrowLeft, FaSync } from 'react-icons/fa';
+
 
 export default function AddToBill() {
   const navigate = useNavigate();
   const [viewBills, setViewBills] = useState(false);
-const [reload , setReload] = useState(false);
+  const [reload, setReload] = useState(false);
+  const [products , setProducts] = useState([]);
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+        try {
+            const res = await axios.get('https://tqb-be.onrender.com/products');
+            setProducts(res.data);
+        } catch (error) {
+            console.log("Error fetching products:", error);
+        }
+    };
+    fetchProducts();
+}, []);
+
   const categoryOptions = [
     { value: 'Cakes', label: 'Cakes' },
     { value: 'Pastries', label: 'Pastries' },
@@ -29,16 +44,34 @@ const [reload , setReload] = useState(false);
     { value: 0, label: 'none' }
   ];
 
-  const flavourOptions = [
-    { value: 'Chocolate', label: 'Chocolate' },
-    { value: 'Vanilla', label: 'Vanilla' },
-    { value: 'Strawberry', label: 'Strawberry' },
-    { value: 'Mango', label: 'Mango' },
+  const initialFlavourOptions = [
+    { value: "none", label: "none" },
+    { value: "Apple", label: "Apple" },
+    { value: "Blackforest", label: "Blackforest" },
+    { value: "Blue Berry", label: "Blue Berry" },
+    { value: "Butterscotch", label: "Butter Scotch" },
+    { value: "Chocolate", label: "Chocolate" },
+    { value: "Chocolate Almond", label: "Chocolate Almond" },
+    { value: "Faluda", label: "Faluda" },
+    { value: "Icecream Faluda", label: "Icecream Faluda" },
+    { value: "Kit Kat", label: "Kit Kat" },
+    { value: "Litchi", label: "Litchi" },
+    { value: "Mango", label: "Mango" },
+    { value: "Mangorabdi", label: "Mango Rabdi" },
+    { value: "Pan Gulkand", label: "Pan Gulkand" },
+    { value: "Pineapple", label: "Pine Apple" },
+    { value: "Pineapple", label: "Pine Apple" },
+    { value: "Pista", label: "Pista" },
+    { value: "Rasmalai", label: "Rasmalai" },
+    { value: "Red Velvet", label: "Red Velvet" },
+    { value: "Strawberry", label: "Strawberry" },
+    { value: "Vanilla", label: "Vanilla" },
   ];
 
   const [category, setCategory] = useState(categoryOptions[0]);
   const [weight, setWeight] = useState(weightOptions[0]);
-  const [flavour, setFlavour] = useState(flavourOptions[0]);
+  const [flavour, setFlavour] = useState(initialFlavourOptions[0]);
+  const [flavourOptions, setFlavourOptions] = useState(initialFlavourOptions);
 
   const [customerData, setCustomerData] = useState({
     customerName: '',
@@ -56,6 +89,26 @@ const [reload , setReload] = useState(false);
   const [addProducts, setAddProducts] = useState([]);
   const [invoiceId, setInvoiceId] = useState('');
   const [msg, setMsg] = useState('');
+
+  useEffect(() => {
+    console.log("bill products : ",products);
+    updateFlavourOptions(products);
+  }, [products]);
+
+  const updateFlavourOptions = (products) => {
+    if (!products || !Array.isArray(products)) {
+      // Handle case where products is not defined or not an array
+      return;
+    }
+    
+    const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
+    const newFlavourOptions = [
+      ...initialFlavourOptions,
+      ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))
+    ];
+    setFlavourOptions(newFlavourOptions);
+  };
+  
 
   const handleCustomerInputChange = (e) => {
     const { name, value } = e.target;
@@ -99,7 +152,6 @@ const [reload , setReload] = useState(false);
     setWeight(weightOptions[0]);
     setFlavour(flavourOptions[0]);
 
-    // Post customer and products data
     await postCustomerAndProductsData(newProduct);
   };
 
@@ -177,7 +229,7 @@ const [reload , setReload] = useState(false);
       return;
     }
 
-    const url = `https://tqb-be.onrender.com/invoiceViewer/${invoiceId}`;
+    const url = `https://thequeenbaker.netlify.app/invoiceViewer/${invoiceId}`;
     const message = `Hi ${customerData.customerName}, \n\nView your Bill here: ${url} \n\nThanks For Shopping From \n *The Queen Baker* \n#WeBakeHappiness`;
 
     const whatsappUrl = `https://wa.me/91${customerData.mobileNumber}?text=${encodeURIComponent(message)}`;
@@ -186,9 +238,9 @@ const [reload , setReload] = useState(false);
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleLeftArrow = ()=>{
+  const handleLeftArrow = () => {
     navigate('/admin/home');
-  }
+  };
 
   const handleReload=()=>{
     setReload(!reload);
@@ -359,7 +411,7 @@ const [reload , setReload] = useState(false);
               <b>Customer Name: </b> {customerData.customerName}
             </div>
             <div className='details'>
-              <div className='mobile-no'>
+              <div className='mo-no'>
                 <p>
                   <b>Mobile Number: </b> {customerData.mobileNumber}
                 </p>
@@ -387,12 +439,12 @@ const [reload , setReload] = useState(false);
                     <tr key={index}>
                       <td> {product.productName} </td>
                       <td> {product.flavour} </td>
-                      <td> {product.price} Rs.</td>
+                      <td> {product.price} Rs</td>
                       <td> {product.weight} Gm </td>
                       <td> {product.quantity} </td>
                     
                      
-                      <td>{product.price * product.quantity} Rs.</td>
+                      <td>{product.price * product.quantity} Rs</td>
                     </tr>
                   ))}
                 </tbody>

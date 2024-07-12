@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export default function AddProducts() {
   const navigate = useNavigate();
 
-  const flavourOptions = [
+  const initialFlavourOptions = [
     { value: "none", label: "none" },
     { value: "Apple", label: "Apple" },
     { value: "Blackforest", label: "Blackforest" },
@@ -50,7 +50,7 @@ export default function AddProducts() {
     { value: "Ice-Creams", label: "Ice-Cream" },
   ];
 
-  const typesOptions = [
+  const initialTypeOptions = [
     { value: "none", label: "none" },
     { value: "BirthDay Cakes", label: "BirthDay Cake" },
     { value: "Anniversary Cakes", label: "Anniversary Cake" },
@@ -68,21 +68,20 @@ export default function AddProducts() {
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState(0);
   const [weight, setWeight] = useState(weightOptions[0]);
-  const [flavour, setFlavour] = useState(flavourOptions[0]);
-  const [type, setType] = useState(typesOptions[0]);
+  const [flavour, setFlavour] = useState(initialFlavourOptions[0]);
+  const [type, setType] = useState(initialFlavourOptions[0]);
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState("");
+
+  const [flavourOptions, setFlavourOptions] = useState(initialFlavourOptions);
+  const [typesOptions, setTypesOptions] = useState(initialTypeOptions);
   
   const [productInfo, setProductInfo] = useState({});
   const [loading, setLoading] = useState(true);
-
-  const [render  ,setRender] = useState(false);
-
+  const [render, setRender] = useState(false);
 
   useEffect(() => {
- 
     setProductInfo({
-   
       image,
       category: category.value,
       productName,
@@ -91,16 +90,15 @@ export default function AddProducts() {
       flavour: flavour.value,
       type: type.value,
     });
-    
   }, [image, category, productName, price, weight, flavour, type]);
-
-
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get("https://tqb-be.onrender.com/products");
         setProducts(res.data);
+        updateFlavourOptions(res.data);
+        updateTypeOptions(res.data);
         setLoading(false);
       } catch (error) {
         console.log("error");
@@ -108,6 +106,25 @@ export default function AddProducts() {
     };
     fetchProducts();
   }, [render]);
+
+  const updateFlavourOptions = (products) => {
+    const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
+    const newFlavourOptions = [
+      ...initialFlavourOptions,
+      ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))
+    ];
+    setFlavourOptions(newFlavourOptions);
+  };
+
+  const updateTypeOptions = (products) => {
+    const uniqueType = Array.from(new Set(products.map(product => product.type).filter(type => type)));
+    const newTypeOptions = [
+      ...initialTypeOptions,
+      ...uniqueType.map(type => ({ value: type, label: type }))
+    ];
+    setTypesOptions(newTypeOptions);
+  };
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -136,7 +153,7 @@ export default function AddProducts() {
         setType(typesOptions.find((option) => option.value === type));
       }
     }
-  }, [editId]);
+  }, [editId, flavourOptions]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -146,30 +163,24 @@ export default function AddProducts() {
       return;
     }
 
-
     try {
+      setLoading(true);
       
       if (isEdit) {
-   
-     console.log("pi :edit  ",productInfo);
-      //  formData.append("_id", editId);
         await axios.put(`https://tqb-be.onrender.com/product/${editId}`, productInfo ,
           {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }
-         );
+        });
         setIsEdit(false);
       } else {
-        console.log("pi : ",productInfo);
         await axios.post("https://tqb-be.onrender.com/admin/add-products", productInfo,
            {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }
-      );
+        });
       }
  
       setRender(!render);
@@ -182,6 +193,8 @@ export default function AddProducts() {
       setFlavour(flavourOptions[0]);
       setType(typesOptions[0]);
       document.getElementById("image").value = "";
+      
+      setLoading(false);
     } catch (error) {
       console.error("Error adding product:", error);
     }
@@ -193,7 +206,6 @@ export default function AddProducts() {
     axios
       .delete(`https://tqb-be.onrender.com/product/${id}`)
       .then(() => {
-        console.log("deleted ok");
         setRender(!render);
         setLoading(false);
       })
@@ -201,6 +213,7 @@ export default function AddProducts() {
         console.log("Error", error);
       });
   };
+
   const handleLeftArrow = () => {
     navigate("/admin/home");
   };

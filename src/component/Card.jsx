@@ -4,16 +4,15 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './Card.css';
 import { useNavigate } from 'react-router-dom';
-import {  FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Card = ({ data, selectedType, selectedFlavour }) => {
-
-const navigate = useNavigate();
-
+  const navigate = useNavigate();
   const [filterType, setFilterType] = useState('');
   const [sortOrder, setSortOrder] = useState('');
   const [filterPrice, setFilterPrice] = useState('');
   const [filterFlavour, setFilterFlavour] = useState('');
+  const [flavourOptions, setFlavourOptions] = useState([]);
   const [activeType, setActiveType] = useState('none');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,6 +39,13 @@ const navigate = useNavigate();
     setFilterFlavour(selectedFlavour);
   }, [selectedFlavour]);
 
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const uniqueFlavours = [...new Set(data.filter(item => item.flavour).map(item => item.flavour))];
+      setFlavourOptions([{ value: '', label: 'All' }, ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))]);
+    }
+  }, [data]);
+
   if (!data || data.length === 0) {
     return <p>No data available</p>;
   }
@@ -51,11 +57,9 @@ const navigate = useNavigate();
     if (item.type) {
       (acc[item.type] = acc[item.type] || []).push(item);
     }
-    
     return acc;
   }, {});
 
- 
   const filteredData = Object.keys(groupedData).reduce((acc, type) => {
     if ((!filterType || filterType === type) && groupedData[type].length > 0) {
       acc[type] = groupedData[type].filter(item => {
@@ -94,27 +98,13 @@ const navigate = useNavigate();
     { value: 'price-asc', label: 'Price' },
   ];
 
-  const flavourOption = [
-    { value: '', label: 'All' },
-    { value: 'Chocolate', label: 'Chocolate' },
-    { value: 'Apple', label: 'Apple' },
-    { value: 'Vanilla', label: 'Vanilla' },
-    { value: 'Strawberry', label: 'Strawberry' },
-    { value: 'Butterscotch', label: 'Butterscotch' },
-
-    // Add more flavor options as needed
-  ];
-
-
-  
-  const handleProductClicked = (id)=>{
+  const handleProductClicked = id => {
     navigate(`/productDetails/${id}`);
+  };
 
-  }
-const handleLeftArrowClick=()=>{
-  navigate('/');
-}
-
+  const handleLeftArrowClick = () => {
+    navigate('/');
+  };
   return (
     <div className="card-center">
       <div className="header-name">
@@ -154,9 +144,9 @@ const handleLeftArrowClick=()=>{
           <label>
             Flavour :
             <Creatable
-              value={flavourOption.find(option => option.value === filterFlavour)}
+              value={flavourOptions.find(option => option.value === filterFlavour)}
               onChange={handleFlavourChange}
-              options={flavourOption}
+              options={flavourOptions}
               isSearchable
               className="flavour-select-input"
             />
@@ -209,18 +199,19 @@ const handleLeftArrowClick=()=>{
           {isLoading ? (
             // Skeleton Loader
             <>
-              {Array(8).fill().map((_, index) => (
-              <div className='type-group'>
+                {  Array(8).fill().map((_, index) => (
+                   <div className='type-group '>
                   { category==='Cakes' && <h2 className={'type-name'}>
                     <Skeleton    />
                     </h2>}
+                    
                <div className='type-items'>     
 
                  { Array(10).fill().map((_, index) => (
 
-<div key={index} className="card-list skeleton">
+<div key={index} className={`card-list skeleton ${category}`} >
               
-<Skeleton className="skeleton-img" height={145} />
+<Skeleton className="skeleton-img"  height={145} />
 <div className="item-details">
   <div className="np">
     <Skeleton className="skeleton-text" width={200} height={20} />

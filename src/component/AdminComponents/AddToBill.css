@@ -1,9 +1,10 @@
 .input-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 90%;
+ 
+  width: 100%;
   margin: 20px auto;
+
 }
 .h2-tag{
   text-align: center;
@@ -38,7 +39,8 @@ background-color: #000000;
 .bill-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  
 }
 
 .customer-input,
@@ -84,7 +86,6 @@ background-color: #000000;
 
   font-size: 16px;
  
-
 }
 
 .add-btn button {
@@ -117,7 +118,8 @@ background-color: #000000;
 .bill-pdf {
   margin-top: 40px;
   border: 1px solid #a7a5a5;
-  padding: 20px;
+  padding: 3px;
+  padding-bottom: 20px;
   border-radius: 5px;
 }
 
@@ -132,12 +134,14 @@ background-color: #000000;
 
 .customer-name {
   margin-top: 20px;
+  margin-left: 10px;
 }
 .details{
   display: flex;
   font-size: 13px;
-  .mobile-no{
+  .mo-no{
     width: 50%;
+    margin-left: 10px;
   }
 }
 
@@ -149,6 +153,7 @@ background-color: #000000;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+font-size: 14px;
 
 }
 
@@ -161,13 +166,14 @@ background-color: #000000;
 
 background-color: #ccc;
   text-align: center;
-  font-size: 14px;
+
 }
 
 .bill-product-details td {
-  padding: 8px;
+  padding-top:5px;
+  padding-bottom: 5px;
   border-bottom: 1px solid #ccc;
-  font-size: 14px;
+  
   text-align: center;
 
 }
@@ -179,6 +185,7 @@ background-color: #ccc;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
+  
 }
 
 .d-s-btn {

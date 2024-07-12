@@ -11,13 +11,17 @@
 
 .expense-history{
   text-align: center;
+  border-bottom: 1px dotted black;
+  padding-bottom: 14px;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
 }
-
+.type-div.data{
+  margin: 0px;
+}
 
 .filters {
   display: flex;
@@ -126,6 +130,7 @@ ul {
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
+  background-color: rgba(238, 238, 238, 0.63);
 }
 
 .date-header {
@@ -134,6 +139,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .date-info {
@@ -164,7 +170,7 @@ ul {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .customer-info-div {
@@ -186,7 +192,7 @@ ul {
 .customer-expenses table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .customer-expenses th,
@@ -197,6 +203,7 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 
 .customer-expenses th {
@@ -272,7 +279,9 @@ ul {
 
   h2{
     text-align: center;
- 
+   border-bottom: 1px dotted black;
+   padding-bottom: 20px;
+   margin-top: 10px;
     width: 100%;
 
   }
@@ -303,6 +312,7 @@ ul {
 @media (max-width: 768px) {
   .filters {
     flex-direction: column;
+    margin: 10px;
   }
 
   .filters label {
@@ -379,13 +389,11 @@ ul {
     font-size: 1rem; /* Adjust font size for mobile */
   }
 
-  .customer-expenses table {
-    font-size: 12px;
-  }
+ 
 
   .expenses-div {
     margin: 0px;
-    padding: 10px;
+    padding: 5px;
   }
 
   .date-card {
@@ -399,7 +407,11 @@ ul {
 
   .customer-expenses th,
   .customer-expenses td {
-    padding: 3px; /* Further adjust padding for smaller screens */
+    padding: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    /* Further adjust padding for smaller screens */
   }
 
   .date-info,

@@ -1,5 +1,13 @@
 
 
+.card-center{
+ display: grid;
+ padding: 0;
+ margin: 0;
+}
+  
+  /* background-color: #c6e9ff; */
+
 .header-name-Cakes {
   width: 90%;
 margin: 130px auto 50px auto;
@@ -10,6 +18,7 @@ margin: 130px auto 50px auto;
   border: 1px dotted #007bff;
   background-color: #fff;
   border-radius:30px;
+  
     font-size: 50px;
 
     
@@ -27,7 +36,7 @@ margin: 130px auto 50px auto;
 }
 
 .header-name-Pastries{
-  width: 80%;
+  width: 90%;
   margin: 120px auto 50px auto;
     text-align: center;
     font-weight: bold;
@@ -36,6 +45,7 @@ margin: 130px auto 50px auto;
     border: 1px dotted #06c13b;
     border-radius:30px;
       font-size: 50px;
+    
 }
 
 .header-name-Ice-Creams{
@@ -62,17 +72,7 @@ margin: 130px auto 50px auto;
       font-size: 50px;
   
 }
-.card-center {
 
-
-  width: 100vw;
-
-  
-  display: grid;
-
-  
-  /* background-color: #c6e9ff; */
-}
 
 .card-list-div {
   display: grid;
@@ -147,7 +147,7 @@ background-color: #fff;
 
 .type-items {
   display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Two-column layout */
+  grid-template-columns: repeat(2, minmax(180px, 1fr)); /* Two-column layout */
    padding: 0px 20px ;
   justify-items: center;
 }
@@ -161,7 +161,7 @@ background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
   width: 200px;
-  height: 240px;
+  height: auto;
   border: 1px  solid rgb(208, 208, 208);
   /* border: thin solid rgb(216, 216, 216); */
   /* border: 8px solid rgb(0, 0, 0,0.1); */
@@ -170,6 +170,7 @@ background-color: #fff;
   margin-top: 20px;
   
 }
+
 
 /* .card-list:hover {
   transform: translateY(-5px);
@@ -200,9 +201,10 @@ text-align: center;
 .item-price {
   width: 100px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   
+  margin: 0 auto;
+
+   
   font-size: 17px;
   background-color:  #06c13b ;
   border-radius: 15px;
@@ -210,6 +212,7 @@ text-align: center;
   font-weight: 500;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 5px;
 }
 
 .item-price:hover {
@@ -360,12 +363,9 @@ cursor: pointer;
 
 /* Skeleton Loader Styles */
 
-.card-list.skeleton{
-  margin-top: 40px;
-}
 .skeleton-loader {
   display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Two-column layout */
+  grid-template-columns: repeat(2, minmax(180px, 1fr)); /* Two-column layout */
   padding: 0px 20px;
   justify-items: center;
 }
@@ -433,9 +433,10 @@ cursor: pointer;
 
 
   .type-items {
-    grid-template-columns: repeat(5, minmax(150px, 1fr)); /* Ensure two-column layout for larger screens */
+    grid-template-columns: repeat(5, minmax(180px, 1fr)); /* Ensure two-column layout for larger screens */
  padding: 0px 120px ;
     width: auto;
+   
    
   }
 
@@ -451,6 +452,7 @@ cursor: pointer;
   }
 
   .item-price {
+  
     font-size: 18px;
   }
  
@@ -460,22 +462,46 @@ cursor: pointer;
    justify-content: center;
 
   }
-.card-list.skeleton{
-  margin-top: 50px;
-}
+
  
 }
 
 @media screen and (max-width: 500px) {
 
   .type-items {
-    gap: 20px;
+    gap: 0px;
+    padding: 0px;
+    margin-top: -10px;
+    margin-bottom: 18px;
    
   }
+
+  .card-list-div{
+    margin-bottom: -10px;
+    
+    gap: 0;
+  }
+
+  .type-name{
+    margin-top: 10px;
+    font-size: 28px;
+  }
+
+
   .card-list {
- margin-top: 0px;
+    width: 170px;
+    height: auto;
+
+ margin-top: 20px;
 
     
+  }
+
+
+
+  .card-list.skeleton.Pastries , .card-list.skeleton.Ice-Creams ,.card-list.skeleton.Biscuits {
+margin-top: 40px;
+  
   }
 
 

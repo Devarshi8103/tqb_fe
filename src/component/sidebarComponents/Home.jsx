@@ -22,6 +22,7 @@ export default function Home() {
   const [carouselImages, setCarouselImages] = useState([]);
   const [categoryProducts, setCategoryProducts] = useState([]);
   const [cakesByFlavour, setCakesByFlavour] = useState([]);
+  const [cakesByType, setCakesByType] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default function Home() {
         const productMap = new Map();
         const categoryMap = new Map();
         const cakesFlavourMap = new Map();
+        const cakesTypeMap = new Map();
 
         data.forEach(product => {
           if (product.type && product.type.toLowerCase() !== 'none' && !productMap.has(product.type)) {
@@ -67,6 +69,18 @@ export default function Home() {
                 name: product.productName,
                 price: product.price,
               });
+
+                // Group cakes by type
+                if (!cakesTypeMap.has(product.type)) {
+                  cakesTypeMap.set(product.type, []);
+                }
+                cakesTypeMap.get(product.type).push({
+                  id: product._id,
+                  flavour: product.flavour,
+                  image: product.image,
+                  name: product.productName,
+                  price: product.price,
+                });
             }
           }
         });
@@ -74,10 +88,13 @@ export default function Home() {
         const uniqueProductsArray = Array.from(productMap, ([type, image]) => ({ type, image }));
         const categoryProductsArray = Array.from(categoryMap, ([category, products]) => ({ category, products }));
         const cakesByFlavourArray = Array.from(cakesFlavourMap, ([flavour, products]) => ({ flavour, products }));
-       console.log("Check id : ", categoryProductsArray);
+        const cakesByTypeArray = Array.from(cakesTypeMap, ([type, products]) => ({ type, products }));
+
+        console.log("Check id : ", categoryProductsArray);
         setUniqueProducts(uniqueProductsArray);
         setCategoryProducts(categoryProductsArray);
         setCakesByFlavour(cakesByFlavourArray);
+        setCakesByType(cakesByTypeArray); 
       }
        catch (error) {
         console.log("error");
@@ -124,7 +141,7 @@ export default function Home() {
       <div className='home-div'>
         <div className="home-carousel-images">
           {loading ? (
-            <Skeleton className='home-image' height={230} />
+            <Skeleton className='home-image' height={190} />
           ) : (
             <Carousel autoPlay interval={3000} infiniteLoop showThumbs={false} showStatus={false} swipeable={true}>
               {carouselImages.map((image, index) => (
@@ -191,15 +208,15 @@ export default function Home() {
 
               <div className={`category-products`}>
                 {categoryItem.category === 'Cakes' ? <div className={`category-list ${categoryItem.category}`}>
-                <h1 className='cakes-header'>Cake Flavours <FaBirthdayCake /></h1>
-                  {cakesByFlavour.map((flavourItem, index) => (
+                <h1 className='cakes-header'>Cake <FaBirthdayCake /></h1>
+                  {cakesByType.map((typeItem, index) => (
                     <div key={index} className={`category-item`}>
                       <div className='category-name-view-all'>
-                        <p className='category-name'>{flavourItem.flavour}</p>
-                        <p className='view-all' onClick={() => handleFlavourClick(flavourItem.flavour)}>View All</p>
+                        <p className='category-name'>{typeItem.type}</p>
+                        <p className='view-all' onClick={() => handleTypeClick(typeItem.type)}>View All</p>
                       </div>
                       <div className='category-products'>
-                        {flavourItem.products.map((product, idx) => (
+                        {typeItem.products.map((product, idx) => (
                           <div key={idx} className='category-product' onClick={()=>{handleProductClicked(product.id)}}>
                             <img className='product-category-image' src={product.image} alt={product.name} />
                             <p className='category-item-name'>{product.name}</p>

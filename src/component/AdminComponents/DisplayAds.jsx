@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { FaImage, FaTrash , FaArrowLeft } from 'react-icons/fa';
 import axios from 'axios';
 import './DisplayAds.css';
+import Loader from '../Loader';
+
 import { useNavigate } from 'react-router-dom';
 
 export default function DisplayAds() {
   const [carouselImage, setCarouselImage] = useState('');
   const [placeCarouselImage, setPlaceCarouselImage] = useState('');
   const [carouselImages, setCarouselImages] = useState([]);
+  const [loading , setLoading] = useState(true);
 
   const navigate = useNavigate();
   const handleImageChange = (e) => {
@@ -28,6 +31,7 @@ export default function DisplayAds() {
     e.preventDefault();
 
     try {
+      
       const formData = new FormData();
       formData.append('image', carouselImage);
 
@@ -37,6 +41,7 @@ export default function DisplayAds() {
         },
       });
       setCarouselImage('');
+     
 
       console.log('done!');
       fetchCarouselImages(); // Refresh the carousel images after adding a new one
@@ -50,6 +55,7 @@ export default function DisplayAds() {
       const res = await axios.get('https://tqb-be.onrender.com/carousel-images');
       console.log('Image data:', res.data);
       setCarouselImages(res.data);
+      setLoading(false);
     } catch (error) {
       console.log('Error fetching carousel images:', error);
     }
@@ -77,7 +83,7 @@ export default function DisplayAds() {
   return (
     <div> 
       <FaArrowLeft  className='left-arrow' onClick={()=>handleLeftArrow()}  size={20}/>
-      <h1 className='carousel-image-header'>Carousel Images</h1>
+      <h2 className='carousel-image-header'>Carousel Images</h2>
 
       <div className='carousel-image-select'>
         {carouselImage ? (
@@ -102,8 +108,9 @@ export default function DisplayAds() {
         <button onClick={handleAddBtn}>Add</button>
       </div>
 
-      <div className='carousel-images'>
-        {carouselImages.map((image, index) => (
+     { loading ? <Loader/> : <div className='carousel-images'>
+
+        {  carouselImages.map((image, index) => (
           <div key={index} className='carousel-image'>
            <div>  <FaTrash  className='carousel-trash-icon'  onClick={() => handleDeleteImage(image._id)}/>   <img src={image.carouselImage} alt={`Carousel ${index}`} /> 
           
@@ -115,7 +122,7 @@ export default function DisplayAds() {
         ))}
       
           
-      </div>
+      </div>}
     </div>
   );
 }

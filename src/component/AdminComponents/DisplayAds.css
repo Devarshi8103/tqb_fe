@@ -23,9 +23,9 @@
   }
   .carousel-image-header{
     text-align: center;
-
-
-    margin: 0 auto;
+     margin: 10px auto;
+     padding-bottom: 10px;
+     border-bottom: 1px dotted black;
 
   }
   

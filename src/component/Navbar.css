@@ -1,10 +1,10 @@
 /* Navbar styles */
 .navbar {
-  position: fixed; /* Added */
+  position: fixed; 
   top: 0; /* Fixed to the top */
   left: 0; /* Fixed to the left */
   right: 0; /* Fixed to the right */
-  z-index: 1000; /* Higher z-index for stacking */
+  z-index: 99; /* Higher z-index for stacking */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,6 +13,7 @@
   color: #fff;
   overflow: hidden;
   height: 70px;
+  
 }
 
 .sidebar-logo,
@@ -49,7 +50,7 @@
 .shop-img {
     width: 72px;
   height: 72px;
-  margin-right: 10px;
+  margin-right: 20px;
 
 
 
@@ -107,44 +108,16 @@
 
 }
 
-/* Search bar styles */
-.search-bar {
-  width: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-bar input[type="text"] {
-  padding: 8px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #f8f9fa;
-  color: #333;
-  width: 300px;
-  transition: width 0.3s ease;
-}
-
-.search-bar input:focus {
-  width: 400px; /* Expanded width on focus */
-}
-
-.search-icon {
-  width: 20px;
-  height: 20px;
-  fill: #fff;
-  cursor: pointer;
-}
 
 .menu {
   position: fixed;
   left: -180px; /* Start off-screen to the left */
   z-index: 99;
+  
   margin-top: 90px;
   background-color: rgb(0, 0, 0,0.8);
   width: 180px;
-  height: 100vh;
+  height: 100rem  ;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out; 
 }
@@ -198,7 +171,6 @@ li.active {
 @media (max-width: 768px) {
 
 
-  
   .menu {
   
     left: -200px; /* Start off-screen to the left */
@@ -217,6 +189,7 @@ li.active {
     text-decoration: none;
     color: #ffdd00;
     display: flex;
+    font-size: 18px;
     align-items: center;
   }
   .menu.open {
@@ -227,55 +200,20 @@ li.active {
   }
   
   
-  .search-bar {
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: width 0.3s ease-in-out;
-  }
-
-  .search-bar input[type="text"] {
-  
-    padding: 8px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-    transition:  0.3s ease-in-out;
-  }
-  .search-bar.true input{
-    transition: width 0.3s ease-in-out;
-    opacity: 1;
-    width: 150px;
-    height: 10px;
-  }
-  .search-bar input:focus {
-    width: 150px; 
-    height: 10px;
-    opacity: 1;
-  }
-  .search-icon {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-    cursor: pointer;
-  }
+ 
+ 
+ 
   /* Shop info styles */
 
   .shop-img {
     width: 58px;
   height: 58px;
-  margin-right: 8px;
+  margin-right: 20px;
 
 
 }
   .shop-name {
     font-size: 24.5px;
+    margin-right: 20px;
   }
 }

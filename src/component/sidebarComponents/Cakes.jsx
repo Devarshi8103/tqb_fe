@@ -1,7 +1,7 @@
 import React, {  useContext } from 'react';
 
 import Card from '../Card';
-import './Cakes.css';
+
 
 import { useLocation } from 'react-router-dom';
 
@@ -20,8 +20,8 @@ export default function Cakes() {
   const filteredCakes = products?.filter(product => product.category === 'Cakes') || [];
 
   return (
-    <div className='cakes-page'>
-      <div className='cakes-list'>
+    <div className=''>
+      <div className=''>
         <Card data={filteredCakes } selectedType={ selectedType} selectedFlavour={selectedFlavour} />
       </div>
     </div>
