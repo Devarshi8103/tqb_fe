@@ -25,7 +25,6 @@ export default function AddProducts() {
     { value: "Mangorabdi", label: "Mango Rabdi" },
     { value: "Pan Gulkand", label: "Pan Gulkand" },
     { value: "Pineapple", label: "Pine Apple" },
-    { value: "Pineapple", label: "Pine Apple" },
     { value: "Pista", label: "Pista" },
     { value: "Rasmalai", label: "Rasmalai" },
     { value: "Red Velvet", label: "Red Velvet" },
@@ -114,23 +113,43 @@ export default function AddProducts() {
   }, [render]);
 
   const updateFlavourOptions = (products) => {
+    // Extract flavours from initialFlavourOptions
+    const initialFlavours = initialFlavourOptions.map(flavour => flavour.value);
+  
+    // Extract unique flavours from products
     const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
+  
+    // Filter out flavours that are already in initialFlavourOptions
+    const newFlavours = uniqueFlavours.filter(flavour => !initialFlavours.includes(flavour));
+  
+    // Combine initialFlavourOptions with new unique flavours
     const newFlavourOptions = [
       ...initialFlavourOptions,
-      ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))
+      ...newFlavours.map(flavour => ({ value: flavour, label: flavour }))
     ];
+  
     setFlavourOptions(newFlavourOptions);
   };
-
+  
   const updateTypeOptions = (products) => {
-    const uniqueType = Array.from(new Set(products.map(product => product.type).filter(type => type)));
+    // Extract types from initialTypeOptions
+    const initialTypes = initialTypeOptions.map(type => type.value);
+  
+    // Extract unique types from products
+    const uniqueTypes = Array.from(new Set(products.map(product => product.type).filter(type => type)));
+  
+    // Filter out types that are already in initialTypeOptions
+    const newTypes = uniqueTypes.filter(type => !initialTypes.includes(type));
+  
+    // Combine initialTypeOptions with new unique types
     const newTypeOptions = [
       ...initialTypeOptions,
-      ...uniqueType.map(type => ({ value: type, label: type }))
+      ...newTypes.map(type => ({ value: type, label: type }))
     ];
-    console.log("type options : ",typesOptions);
+  
     setTypesOptions(newTypeOptions);
   };
+  
 
 
   const handleImageChange = (e) => {
@@ -160,7 +179,7 @@ export default function AddProducts() {
         setType(typesOptions.find((option) => option.value === type));
       }
     }
-  }, [editId, flavourOptions]);
+  }, [editId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -200,6 +219,7 @@ export default function AddProducts() {
       setFlavour(flavourOptions[0]);
       setType(typesOptions[0]);
       document.getElementById("image").value = "";
+      setEditId("");
       
       setLoading(false);
     } catch (error) {

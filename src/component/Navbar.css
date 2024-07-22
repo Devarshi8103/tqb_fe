@@ -68,7 +68,7 @@
   font-weight: bold;
   
 
-  animation: gradientAnimation 3s ease-in-out infinite;
+  animation: gradientAnimation 8s ease-in-out infinite;
 }
 
 @keyframes gradientAnimation {

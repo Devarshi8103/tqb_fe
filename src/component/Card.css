@@ -10,7 +10,7 @@
 
 .header-name-Cakes {
   width: 90%;
-margin: 130px auto 50px auto;
+margin: 130px auto 40px auto;
   text-align: center;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
@@ -144,6 +144,20 @@ background-color: #fff;
 
  /* background-color: #007BFF; */
  color: #007BFF;
+
+
+}
+.type-name.Pastries{
+  color: #06c13b;
+
+}
+
+.type-name.Ice-Creams{
+  color:#ff5b92 ;
+
+}
+.type-name.Biscuits{
+  color:#debd02 ;
 
 
 }

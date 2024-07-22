@@ -524,31 +524,32 @@ const handleLeftArrow = ()=>{
                     <div>Customer Name: <b>{customerName}</b></div>
                     <div className='mobile-no'>{customerData.mobileNumber && <p>Mobile No: {customerData.mobileNumber}</p>}</div>
                   </div>
-                  <div className="customer-expenses">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Category</th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Weight</th>
-                          <th>Quantity</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {customerData.expenses.map((expense) => (
-                          <tr key={expense._id} className="expense-item" onDoubleClick={() => handleExpenseDoubleClick(expense)}>
-                            <td>{expense.category}</td>
-                            <td>{expense.productName}</td>
-                            <td>{expense.price} Rs</td>
-                            <td>{expense.weight * 1000} gm</td>
-                            <td>{expense.quantity}</td>
-                            <td>{expense.quantity * expense.price} Rs</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <div >
+                  <table className="customer-expenses">
+  <thead>
+    <tr className='tr-head'>
+      <th>Category</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Weight</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {customerData.expenses.map((expense) => (
+      <tr key={expense._id} className="expense-item" onDoubleClick={() => handleExpenseDoubleClick(expense)}>
+        <td><div className="td-scroll">{expense.category}</div></td>
+        <td><div className="td-scroll">{expense.productName}</div></td>
+        <td><div className="td-scroll">{expense.price} Rs</div></td>
+        <td><div className="td-scroll">{expense.weight * 1000} gm</div></td>
+        <td><div className="td-scroll">{expense.quantity}</div></td>
+        <td><div className="td-scroll">{expense.quantity * expense.price} Rs</div></td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
                     <div className="total-revenue">
                       Total Cost: {calculateTotalRevenue(customerData.expenses)} Rs
                     </div>

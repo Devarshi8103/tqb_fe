@@ -119,7 +119,7 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
       </div>
       <div className="filter-controls">
         <label>
-          Sort :
+          Sort by :
           <Creatable
             value={sortOptions.find(option => option.value === sortOrder)}
             onChange={handleSortChange}
@@ -156,7 +156,7 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
           </label>
         )}
       </div>
-      {category === 'Cakes' &&
+      {(category === 'Cakes' || category==='Ice-Creams') &&
         <div className="type-div">
        {  isLoading ? (<>
         {Array(8).fill().map((_, index) => (
@@ -204,7 +204,7 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
             <>
                 {  Array(8).fill().map((_, index) => (
                    <div className='type-group '>
-                  { category==='Cakes' && <h2 className={'type-name'}>
+                  { (category==='Cakes' || category==='Ice-Creams' ) && <h2 className={'type-name'}>
                     <Skeleton    />
                     </h2>}
                     
@@ -236,7 +236,7 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
                   <h1 className='no-data'></h1>
                 ) : (
                   <>
-                    <h2 className={type === 'none' ? '' : 'type-name'}>
+                    <h2 className={type === 'none' ? '' : `type-name ${category}`}>
                      <div>{type === 'none' ? '' : type}</div>
                     </h2>
 

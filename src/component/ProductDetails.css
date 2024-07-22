@@ -102,6 +102,7 @@ text-transform: capitalize;
 
 .table-details td:nth-child(even) {
 
+    
     color: #FFD700;
    
 
@@ -109,3 +110,105 @@ text-transform: capitalize;
 
 }
 
+
+
+
+.product-order-form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    transition: opacity 5s ease-in-out, visibility  5s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+
+  }
+  
+  .product-order-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .order-header{
+    text-align: center;
+    padding-bottom: 10px;
+   border-bottom: 1px solid black;
+  }
+  .product-order-form input[type="text"],
+  .product-order-form textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .order-input{
+    margin-top: 10px;
+  }
+  
+  .product-order-form input[type="text"]:focus,
+  .product-order-form textarea:focus {
+    border-color: #25D366;
+    box-shadow: 0 0 8px rgba(42, 157, 143, 0.2);
+    outline: none;
+  }
+  
+  .product-order-form .flavour-select-input {
+    margin-top: 5px;
+  }
+  .isOrder{
+   width: 88%;
+   height: 49px;
+   margin-top: 20px;
+   display: flex;
+   margin-bottom: 0px;
+   align-items: center;
+   justify-content: center;
+   background-color: #ff9d00;
+color: #fff;
+   font-size: 20px;
+   border: 1px solid;
+   border-color:#fff ;
+   border-radius: 5px;
+
+   
+
+  }
+  
+  .share-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  
+  }
+  .product-order-form button {
+    padding: 12px 20px;
+    background-color: #25D366;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .product-order-form button:hover {
+    background-color: #25D366;
+    transform: scale(1.05);
+  }
+  
+  .product-order-form button:active {
+    background-color: #25D366;
+  }
+  

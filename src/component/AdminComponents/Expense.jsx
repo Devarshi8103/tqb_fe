@@ -15,6 +15,7 @@ export default function Expense() {
         try {
             const res = await axios.get('https://tqb-be.onrender.com/products');
             setProducts(res.data);
+            updateFlavourOptions(res.data);
         } catch (error) {
             console.log("Error fetching products:", error);
         }
@@ -31,13 +32,18 @@ export default function Expense() {
   ];
 
   const weightOptions = [
-    { value: 0.5, label: '500gm' },
-    { value: 1, label: '1kg' },
-    { value: 1.5, label: '1.5kg' },
-    { value: 2, label: '2kg' },
-    { value: 3, label: '3kg' },
-    { value: 0.25, label: '250gm' },
-    { value: 0, label: 'none' }
+    { value: 0 ,label: "none" },
+    { value: 0.25, label: "250gm" },
+    { value: 0.5, label: "500gm" },
+    { value: 1, label: "1kg" },
+    { value: 1.5, label: "1.5kg" },
+    { value: 2, label: "2kg" },
+    { value: 2.5, label: "2.5kg" },
+    { value: 3, label: "3kg" },
+    { value: 3.5, label: "3.5kg" },
+    { value: 4, label: "4kg" },
+    { value: 4.5, label: "4.5kg" },
+    { value: 5, label: "5kg" },
   ];
 
   const initialFlavourOptions = [
@@ -57,7 +63,6 @@ export default function Expense() {
     { value: "Mangorabdi", label: "Mango Rabdi" },
     { value: "Pan Gulkand", label: "Pan Gulkand" },
     { value: "Pineapple", label: "Pine Apple" },
-    { value: "Pineapple", label: "Pine Apple" },
     { value: "Pista", label: "Pista" },
     { value: "Rasmalai", label: "Rasmalai" },
     { value: "Red Velvet", label: "Red Velvet" },
@@ -72,7 +77,7 @@ export default function Expense() {
 
 
   const [customerData, setCustomerData] = useState({
-    customerName: '',
+    customerName: 'Unknown',
     mobileNumber: '',
   });
 
@@ -83,24 +88,27 @@ export default function Expense() {
   });
 
 
-  useEffect(() => {
-    console.log("bill products : ",products);
-    updateFlavourOptions(products);
-  }, [products]);
 
-  const updateFlavourOptions = (products) => {
-    if (!products || !Array.isArray(products)) {
-      // Handle case where products is not defined or not an array
-      return;
-    }
+
+    const updateFlavourOptions = (products) => {
+      // Extract flavours from initialFlavourOptions
+      const initialFlavours = initialFlavourOptions.map(flavour => flavour.value);
     
-    const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
-    const newFlavourOptions = [
-      ...initialFlavourOptions,
-      ...uniqueFlavours.map(flavour => ({ value: flavour, label: flavour }))
-    ];
-    setFlavourOptions(newFlavourOptions);
-  };
+      // Extract unique flavours from products
+      const uniqueFlavours = Array.from(new Set(products.map(product => product.flavour).filter(flavour => flavour)));
+    
+      // Filter out flavours that are already in initialFlavourOptions
+      const newFlavours = uniqueFlavours.filter(flavour => !initialFlavours.includes(flavour));
+    
+      // Combine initialFlavourOptions with new unique flavours
+      const newFlavourOptions = [
+        ...initialFlavourOptions,
+        ...newFlavours.map(flavour => ({ value: flavour, label: flavour }))
+      ];
+    
+      setFlavourOptions(newFlavourOptions);
+    };
+    
   
 
   const handleCustomerInputChange = (e) => {

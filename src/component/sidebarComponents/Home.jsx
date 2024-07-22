@@ -10,7 +10,7 @@ import axios from 'axios';
 import Footer from '../Footer';
 import { FaBirthdayCake, FaCookie, FaIceCream, FaUtensils } from 'react-icons/fa';
 
-import { ProductContext } from '../Contexts/ProductsContext';
+import { ProductContext } from '../Contexts/ProductsContext.jsx';
 
 export default function Home() {
   const [text] = useTypewriter({
@@ -37,12 +37,12 @@ export default function Home() {
         const data = res.data;
         console.log("pd : ", products );
         console.log("data: ", data);
-
+  
         const productMap = new Map();
         const categoryMap = new Map();
         const cakesFlavourMap = new Map();
         const cakesTypeMap = new Map();
-
+  
         data.forEach(product => {
           if (product.type && product.type.toLowerCase() !== 'none' && !productMap.has(product.type)) {
             productMap.set(product.type, product.image);
@@ -52,13 +52,13 @@ export default function Home() {
               categoryMap.set(product.category, []);
             }
             categoryMap.get(product.category).push({
-               id :product._id,
+              id :product._id,
               flavour: product.flavour,
               image: product.image,
               name: product.productName,
               price: product.price,
             });
-
+  
             // Group cakes by flavour
             if (product.category.toLowerCase() === 'cakes') {
               if (!cakesFlavourMap.has(product.flavour)) {
@@ -70,34 +70,40 @@ export default function Home() {
                 name: product.productName,
                 price: product.price,
               });
-
-                // Group cakes by type
-                if (!cakesTypeMap.has(product.type)) {
-                  cakesTypeMap.set(product.type, []);
-                }
-                cakesTypeMap.get(product.type).push({
-                  id: product._id,
-                  flavour: product.flavour,
-                  image: product.image,
-                  name: product.productName,
-                  price: product.price,
-                });
+  
+              // Group cakes by type
+              if (!cakesTypeMap.has(product.type)) {
+                cakesTypeMap.set(product.type, []);
+              }
+              cakesTypeMap.get(product.type).push({
+                id: product._id,
+                flavour: product.flavour,
+                image: product.image,
+                name: product.productName,
+                price: product.price,
+              });
             }
           }
         });
-
-        const uniqueProductsArray = Array.from(productMap, ([type, image]) => ({ type, image }));
+  
+        const uniqueProductsArray = Array.from(
+          data.filter(product => product.category === 'Cakes').reduce((productMap, product) => {
+            productMap.set(product.type, product.image);
+            return productMap;
+          }, new Map()),
+          ([type, image]) => ({ type, image })
+        );
+  
         const categoryProductsArray = Array.from(categoryMap, ([category, products]) => ({ category, products }));
         const cakesByFlavourArray = Array.from(cakesFlavourMap, ([flavour, products]) => ({ flavour, products }));
         const cakesByTypeArray = Array.from(cakesTypeMap, ([type, products]) => ({ type, products }));
-
+  
         console.log("Check id : ", categoryProductsArray);
         setUniqueProducts(uniqueProductsArray);
         setCategoryProducts(categoryProductsArray);
         setCakesByFlavour(cakesByFlavourArray);
         setCakesByType(cakesByTypeArray); 
-      }
-       catch (error) {
+      } catch (error) {
         console.log("error");
       } finally {
         setLoading(false);
@@ -105,6 +111,7 @@ export default function Home() {
     };
     fetchProducts();
   }, []);
+  
 
   const fetchCarouselImages = async () => {
     try {
@@ -165,6 +172,7 @@ export default function Home() {
         </div>
       ))
       ) : (
+        
           uniqueProducts.map((product, index) => (
             <div
               key={index}
@@ -211,7 +219,7 @@ export default function Home() {
 
               <div className={`category-products`}>
                 {categoryItem.category === 'Cakes' ? <div className={`category-list ${categoryItem.category}`}>
-                <h1 className='cakes-header'>Cake <FaBirthdayCake /></h1>
+                <h1 className='cakes-header'>Cakes <FaBirthdayCake /></h1>
                   {cakesByType.map((typeItem, index) => (
                     <div key={index} className={`category-item`}>
                       <div className='category-name-view-all'>

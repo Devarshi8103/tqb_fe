@@ -200,9 +200,9 @@ ul {
   padding: 8px;
   border-bottom: 1px solid #ddd;
   text-align: left;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 
 }
 
@@ -333,14 +333,63 @@ ul {
     margin-left: 10px;
   }
 
-  .customer-expenses table {
-    font-size: 13px;
+  .customer-expenses {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    table-layout: fixed; /* Ensure consistent column widths */
   }
-
+  
   .customer-expenses th,
   .customer-expenses td {
-    padding: 5px; /* Adjust padding for mobile */
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    /* white-space: nowrap;
+    overflow: hidden;  */
   }
+  .customer-expenses td {
+
+    font-size: 13px;
+  }
+  
+  .customer-expenses th {
+    width: auto;
+  }
+  
+  .customer-expenses td {
+    width: auto; /* Ensure td expands to fit content */
+  }
+  
+  .td-scroll {
+    max-height: 500px; /* Example: Set max height for td content */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  }
+  
+  .td-scroll::-webkit-scrollbar {
+    height: 0px;
+  }
+  
+  .td-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .td-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+  
+  /* Hide scrollbar for Webkit browsers */
+  .td-scroll::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  /* Show scrollbar on hover */
+  .td-scroll:hover::-webkit-scrollbar {
+    display: block;
+  
+  }
+  
 
   .date-info {
     font-size: 1em; /* Adjust font size for mobile */
