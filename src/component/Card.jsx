@@ -19,7 +19,7 @@ const Card = ({ data, selectedType, selectedFlavour }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Simulate loading time
+    }, 1000); // Simulate loading time
   }, []);
 
   const handleClick = (type) => {
